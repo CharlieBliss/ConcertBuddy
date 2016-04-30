@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  before_action :require_current_user
+  # before_action :require_current_user
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
@@ -13,10 +13,10 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def require_current_user
-    unless current_user
-      flash[:alert] = "You must be logged in to access this page"
-      redirect_to root_path
-    end
-  end
+  # def require_current_user
+  #   unless current_user
+  #     flash[:alert] = "You must be logged in to access this page"
+  #     redirect_to root_path
+  #   end
+  # end
 end
