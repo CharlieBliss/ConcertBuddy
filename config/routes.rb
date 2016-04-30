@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show, :create]
 
   post '/events/get_events', to: 'events#get_events'
+
+  resources :events, only: [:index, :show]
+  resources :users, only: [:new, :create]
+
+  #new and users#create to routes
   # You can have the root of your site routed with "root"
   root 'events#index'
 
