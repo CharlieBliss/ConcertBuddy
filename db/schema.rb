@@ -17,21 +17,28 @@ ActiveRecord::Schema.define(version: 20160430203214) do
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.string   "location",   null: false
+    t.string   "url",        null: false
+    t.string   "name",       null: false
+    t.datetime "start"
+    t.string   "address"
+    t.string   "city"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.string   "html"
+    t.string   "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "groups", force: :cascade do |t|
-    t.integer "event_id",              null: false
-    t.string  "name",       limit: 50
-    t.integer "size",       limit: 2,  null: false
-    t.integer "creator_id",            null: false
+    t.integer "event_id",            null: false
+    t.string  "name",     limit: 50
+    t.integer "size",     limit: 2,  null: false
+    t.integer "owner_id",            null: false
   end
 
-  add_index "groups", ["creator_id"], name: "index_groups_on_creator_id", using: :btree
   add_index "groups", ["event_id"], name: "index_groups_on_event_id", using: :btree
+  add_index "groups", ["owner_id"], name: "index_groups_on_owner_id", using: :btree
 
   create_table "groups_users", force: :cascade do |t|
     t.integer  "group_id",   null: false

@@ -1,3 +1,8 @@
 <h2>Events</h2>
 
-<%= @events %>
+<% @events.each do |event| %>
+
+
+1: <%=link_to(event.name, event) %>
+    <a href= <%=event.url%>> More Information </a>
+<% end  %>

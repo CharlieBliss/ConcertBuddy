@@ -8,8 +8,8 @@ class CreateEvents < ActiveRecord::Migration
       t.string :city
       t.string :latitude
       t.string :longitude
-      t.string :html
-      t.string :text
+      t.text :html
+      t.text :text
 
       t.timestamps null: false
     end

@@ -9,9 +9,8 @@
 
 User.create({name: 'Thomas', email: 'Thomas@Yancey.web', password_digest: 'assword', about: "I am a cool guy who loves heading out to concerts, laying down on the floor, and crying my eyes out" })
 
-Event.create({title: "Cool Concert", location: "The Floor"})
+Event.create({name: "Tommys Concert", url: "www.google.com", start: DateTime.now})
 
-Group.create({event_id: 1, name: "Please hang out with me", size: 3, owner_id: 1})
 
 Tag.create({title: "cool"})
 
