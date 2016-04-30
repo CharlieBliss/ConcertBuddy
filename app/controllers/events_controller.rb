@@ -5,16 +5,12 @@ class EventsController < ApplicationController
   end
 
   def get_events
-    binding.pry
   end
 
   def show
-<<<<<<< HEAD
     @event = Event.find(params[:id])
-=======
-    binding.pry
     # @event = Event.find(params[:id])
->>>>>>> master
+    @groups = @event.groups
   end
 
   def index
@@ -24,6 +20,7 @@ class EventsController < ApplicationController
     # binding.pry
     # will eventually be the events for that user on this call based on location
     @events = Event.all
+
   end
 
 end
