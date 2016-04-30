@@ -1,7 +1,20 @@
 class EventsController < ApplicationController
 
+  def create
+
+  end
+
+  def get_events
+    binding.pry
+  end
+
   def show
+<<<<<<< HEAD
     @event = Event.find(params[:id])
+=======
+    binding.pry
+    # @event = Event.find(params[:id])
+>>>>>>> master
   end
 
   def index
