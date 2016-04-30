@@ -11,20 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160430195927) do
+ActiveRecord::Schema.define(version: 20160430203214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "groups", force: :cascade do |t|
-    t.integer "event_id",            null: false
-    t.string  "name",     limit: 50
-    t.integer "size",     limit: 2,  null: false
-    t.integer "owner_id",            null: false
+  create_table "events", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.string   "location",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
+  create_table "groups", force: :cascade do |t|
+    t.integer "event_id",              null: false
+    t.string  "name",       limit: 50
+    t.integer "size",       limit: 2,  null: false
+    t.integer "creator_id",            null: false
+  end
+
+  add_index "groups", ["creator_id"], name: "index_groups_on_creator_id", using: :btree
   add_index "groups", ["event_id"], name: "index_groups_on_event_id", using: :btree
-  add_index "groups", ["owner_id"], name: "index_groups_on_owner_id", using: :btree
 
   create_table "groups_users", force: :cascade do |t|
     t.integer  "group_id",   null: false
