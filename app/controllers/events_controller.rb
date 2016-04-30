@@ -5,7 +5,6 @@ class EventsController < ApplicationController
   end
 
   def get_events
-    binding.pry
   end
 
   def show
