@@ -24,14 +24,14 @@ ActiveRecord::Schema.define(version: 20160430203214) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.integer "event_id",            null: false
-    t.string  "name",     limit: 50
-    t.integer "size",     limit: 2,  null: false
-    t.integer "owner_id",            null: false
+    t.integer "event_id",              null: false
+    t.string  "name",       limit: 50
+    t.integer "size",       limit: 2,  null: false
+    t.integer "creator_id",            null: false
   end
 
+  add_index "groups", ["creator_id"], name: "index_groups_on_creator_id", using: :btree
   add_index "groups", ["event_id"], name: "index_groups_on_event_id", using: :btree
-  add_index "groups", ["owner_id"], name: "index_groups_on_owner_id", using: :btree
 
   create_table "groups_users", force: :cascade do |t|
     t.integer  "group_id",   null: false
