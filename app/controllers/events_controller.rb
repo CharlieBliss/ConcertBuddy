@@ -9,8 +9,12 @@ class EventsController < ApplicationController
   end
 
   def show
+<<<<<<< HEAD
+    @event = Event.find(params[:id])
+=======
     binding.pry
     # @event = Event.find(params[:id])
+>>>>>>> master
   end
 
   def index
@@ -19,7 +23,7 @@ class EventsController < ApplicationController
     # # "https://www.eventbriteapi.com/v3/events/search/?token='+ZRZ2ELU45C2X5UVCKE"
     # binding.pry
     # will eventually be the events for that user on this call based on location
-    # @events = Event.all
+    @events = Event.all
   end
 
 end
