@@ -1,0 +1,10 @@
+<h3>Create a group for your event </h3>
+<%= render 'form', locals: {group: @group} %>
+
+<div>
+  <% if @group.errors.any? %>
+    <% @group.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  <% end %>
+</div>
