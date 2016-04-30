@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   #destory
->>>>>>> master
   # You can have the root of your site routed with "root"
   root 'events#index'
 
