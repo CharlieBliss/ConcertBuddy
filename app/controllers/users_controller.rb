@@ -8,9 +8,9 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     binding.pry
     if user.save
-      redirect_to root
+      redirect_to root_path
     else
-      render :new
+      redirect_to new_user_path
     end
   end
 
