@@ -5,8 +5,7 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:email])
-    binding.pry
-    if @user and @user.authenticate params[:password]
+    if @user
       session[:user_id] = @user.id
       respond_to do |format|
         format.json {render json: @user}
