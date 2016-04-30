@@ -1,0 +1,10 @@
+<h3>Create an account</h3>
+<%= render 'form', locals: {user: @user} %>
+
+<div>
+  <% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  <% end %>
+</div>
