@@ -8,11 +8,16 @@
 
         $.get('https://www.eventbriteapi.com/v3/events/search/?token='+token+'&venue.city=new+york&expand=venue', function(res) {
             if(res.events.length) {
-              debugger
+              var slim_objects = [];
+              for (var i = 0; i < res.events.length; i++){
+                slim_objects.push(new Event(res.events[i]));
+              };
+              var slimJson = JSON.stringify(slim_objects);
               $.ajax({
                 method: "POST",
-                url: "/events/create",
-                dataType: "json"
+                url: "/events/get_events",
+                dataType: "json",
+                data: slimJson
               }).done(function(response){
                 response
               });
@@ -38,11 +43,6 @@ function Event(obj) {
   this.name = obj.name.text;
   this.start = obj.start.local;
   this.address = obj.venue.address.address_1;
-  this.city = obj.venue.address.city;
-  this.latitude = obj.venue.address.latitude;
-  this.longitude = obj.venue.address.longitude;
-  this.html = obj.description.html;
-  this.text = obj.description.text
 }
 
 
