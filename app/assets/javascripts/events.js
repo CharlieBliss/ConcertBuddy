@@ -17,7 +17,7 @@
                 method: "POST",
                 url: "/events/get_events",
                 dataType: "json",
-                data: slimJson
+                data: {"data": slimJson}
               }).done(function(response){
                 response
               });

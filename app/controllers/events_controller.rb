@@ -1,15 +1,19 @@
 class EventsController < ApplicationController
 
   def create
-
   end
 
   def get_events
-    binding.pry
+    jsondata = JSON.parse(params[:data])
+    jsondata.each do |event|
+      event = Event.new(url: event["url"], name: event["name"], start: event["start"], address: event["address"], eventbrite_id: event["id"])
+      event.save
+      # binding.pry
+    end
   end
 
   def show
-    binding.pry
+    # binding.pry
     # @event = Event.find(params[:id])
   end
 
