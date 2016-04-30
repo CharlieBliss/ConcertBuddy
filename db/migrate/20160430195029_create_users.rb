@@ -7,5 +7,6 @@ class CreateUsers < ActiveRecord::Migration
       t.text :about
 
       t.timestamps null: false
+    end
   end
 end
