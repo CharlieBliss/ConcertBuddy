@@ -17,21 +17,6 @@ class SessionsController < ApplicationController
     end
   end
 
-  def oauth_create
-    @user = User.create_or_get_from_oauth(request.env['omniauth.auth'])
-    if @user
-      flash[:notice] = 'Login successful'
-      session[:user_id] = @user.id
-        if @user.items.any?
-          redirect_to '/available_items'
-        else
-          redirect_to new_item_path
-        end
-    else
-      render :new
-    end
-  end
-
   def destroy
     session.clear
     redirect_to root_path
