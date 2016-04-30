@@ -9,12 +9,7 @@ class EventsController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
     @event = Event.find(params[:id])
-=======
-    binding.pry
-    # @event = Event.find(params[:id])
->>>>>>> master
   end
 
   def index
