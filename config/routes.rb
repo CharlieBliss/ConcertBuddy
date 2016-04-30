@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
 
   #new and users#create to routes
+
+  resources :sessions, only: [:new, :create]
+
   # You can have the root of your site routed with "root"
   root 'events#index'
 
