@@ -5,7 +5,7 @@ class Group < ActiveRecord::Base
 
   validates :event_id, numericality: true, presence: true
   validates :owner_id, numericality: true, presence: true
-  validates :name, length: 50
+  validates :name, length:{minimum:  50}
   validates :size, numericality: true, presence: true
 
 
