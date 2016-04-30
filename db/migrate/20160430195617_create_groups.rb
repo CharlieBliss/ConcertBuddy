@@ -4,7 +4,7 @@ class CreateGroups < ActiveRecord::Migration
       t.integer :event_id, index: true, null: false
       t.string :name, limit: 50
       t.integer :size,limit: 2, null: false
-      t.integer :creator_id, index: true, null: false
+      t.integer :owner_id, index: true, null: false
     end
   end
 end
