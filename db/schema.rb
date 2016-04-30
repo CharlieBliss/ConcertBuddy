@@ -17,17 +17,13 @@ ActiveRecord::Schema.define(version: 20160430203214) do
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.string   "url",        null: false
-    t.string   "name",       null: false
+    t.string   "url",           null: false
+    t.string   "name",          null: false
     t.datetime "start"
     t.string   "address"
-    t.string   "city"
-    t.string   "latitude"
-    t.string   "longitude"
-    t.string   "html"
-    t.string   "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "eventbrite_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "groups", force: :cascade do |t|
