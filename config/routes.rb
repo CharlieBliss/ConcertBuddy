@@ -1,9 +1,23 @@
 Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  resources :events, only: [:index, :show]
+  resources :events, only: [:index, :show] do
+    resources :groups, only: [:new,:create,:index,:show]
+  end
+
+  post '/events/get_events', to: 'events#get_events'
+
+  resources :users, only: [:new, :create]
+
+  #new and users#create to routes
+
+  resources :sessions, only: [:new, :create]
+
+  resources :sessions, only: [:new, :create, :destroy]
+
+  #destory
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'events#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
