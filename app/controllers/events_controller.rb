@@ -6,7 +6,9 @@ class EventsController < ApplicationController
     jsondata.each do |event|
       event = Event.new(url: event["url"], name: event["name"], start: event["start"], address: event["address"], eventbrite_id: event["id"])
       event.save
+    end
   end
+
 
   def show
     @event = Event.find(params[:id])
@@ -20,7 +22,6 @@ class EventsController < ApplicationController
     # binding.pry
     # will eventually be the events for that user on this call based on location
     @events = Event.all
-
   end
 
 end

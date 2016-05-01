@@ -1,9 +1,8 @@
 <h1> <%= @event.name %> </h1>
-<p> <%= @event.text %> </p>
 
 <ul>
-  <li>Starts <%= @event.start %></li>
-  <li>Location: <%= @event.address.to_s + ", " + @event.city.to_s %></li>
+  <li>Starts <%= std_format_date(@event.start)%></li>
+  <li>Location: <%= @event.address.to_s + ", " + "new york " %></li>
   <li>More Information: <a href=<%= @event.url %>>At their Website</a></li>
 
 </ul>
