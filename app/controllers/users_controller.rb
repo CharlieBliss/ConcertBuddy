@@ -5,12 +5,18 @@ class UsersController < ApplicationController
   end
 
   def create
+
     user = User.new(user_params)
     if user.save
-      redirect_to root_path
+      redirect_to "auth/eventbrite"
     else
       redirect_to new_user_path
     end
+  end
+
+  def something
+    binding.pry
+    redirect_to root_path
   end
 
   private
