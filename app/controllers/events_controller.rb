@@ -10,6 +10,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def index
+    binding.pry
+  end
+
 
   def show
     @event = Event.find(params[:id])

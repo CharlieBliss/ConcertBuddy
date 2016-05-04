@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get '/users/something', to: 'users#something'
 
+  get '/eventbrite/events', to: 'eventbrite#events'
+
   post '/events/get_events', to: 'events#get_events'
 
   resources :users, only: [:new, :create]
