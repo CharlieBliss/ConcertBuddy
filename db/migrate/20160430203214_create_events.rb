@@ -6,11 +6,10 @@ class CreateEvents < ActiveRecord::Migration
       t.datetime :start
       t.string :address
       t.string :eventbrite_id
-      # t.string :city
-      # t.string :latitude
-      # t.string :longitude
-      # t.string :html
-      # t.string :text
+      t.string :latitude, precision: 7
+      t.string :longitude, precision: 7
+      t.string :venue
+
       t.timestamps null: false
     end
   end

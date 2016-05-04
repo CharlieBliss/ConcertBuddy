@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 
     respond_to do |format|
       format.json {render json: @user}
-      format.html {redirect_to root_path}
+      format.html {redirect_to "/eventbrite/events"}
     end
 
   end

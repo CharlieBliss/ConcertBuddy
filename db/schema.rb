@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 20160504013831) do
     t.datetime "start"
     t.string   "address"
     t.string   "eventbrite_id"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.string   "venue"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
