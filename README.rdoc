@@ -1,28 +1,5 @@
-== README
+== ConcertBuddy
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+We created this app at Spotify's monthly music hackathon on April 29, 2016.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Developed by: [https://github.com/CharlieBliss](Charlie Bliss), [https://github.com/nataliecodes](Natalie Polen), [https://github.com/williej](Will Van Wart), and [https://github.com/thomas-yancey](Thomas Yancey). 
