@@ -6,7 +6,8 @@ class GroupsController < ApplicationController
   end
 
   def create
-
+    binding.pry
+    puts 'hey'
   end
 
   def show
