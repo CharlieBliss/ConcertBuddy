@@ -1,5 +1,5 @@
 <h3>Create a group for your event </h3>
-<%= render 'form', locals: {group: @group} %>
+<%= render 'form', locals: {group: @group, event: @event} %>
 
 <div>
   <% if @group.errors.any? %>
