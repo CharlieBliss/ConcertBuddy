@@ -1,13 +1,18 @@
 class EventsController < ApplicationController
 
-  def get_events
-    @event = Event.find(params[:id])
-    jsondata = JSON.parse(params[:data])
-    jsondata.each do |event|
-      event = Event.new(url: event["url"], name: event["name"], start: event["start"], address: event["address"], eventbrite_id: event["id"])
-      event.save
-    end
-  end
+  # def get_events
+  #   # @event = Event.find(params[:id])
+
+  #   jsondata = JSON.parse(params[:data])
+  #   jsondata.each do |event|
+  #     event = Event.new(url: event["url"], name: event["name"], start: event["start"], address: event["address"], eventbrite_id: event["id"])
+  #     event.save
+  #   end
+  # end
+
+  # def index
+  #   binding.pry
+  # end
 
 
   def show

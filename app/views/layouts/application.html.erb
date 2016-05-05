@@ -21,7 +21,7 @@
       <a class="navbar-brand" href="/">LinkUP</a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href="/users/something">Binding</a>
         </li>
         <% if current_user %>
           <li class="nav-item">
@@ -36,10 +36,7 @@
 
         <% else %>
           <li class="nav-item">
-            <a class="nav-link" href="/users/new">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/sessions/new">Login</a>
+            <a class="nav-link" href="/auth/eventbrite">Login with eventbrite</a>
           </li>
         <% end %>
 

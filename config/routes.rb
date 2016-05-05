@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
+  get 'home/profile'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :events, only: [:index, :show] do
     resources :groups, only: [:new,:create,:index,:show]
   end
+
+  get 'auth/:provider/callback', to: "sessions#create"
+
+  get '/users/something', to: 'users#something'
+
+  get '/eventbrite/events', to: 'eventbrite#events'
 
   post '/events/get_events', to: 'events#get_events'
 
