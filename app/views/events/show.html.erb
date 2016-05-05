@@ -4,10 +4,29 @@
   <li>Starts <%= std_format_date(@event.start)%></li>
   <li>Location: <%= @event.address.to_s + ", " + "new york " %></li>
   <li>More Information: <a href=<%= @event.url %>>At their Website</a></li>
-
 </ul>
 
+<li><%=link_to "see groups", class: "see-groups" %></li>
 
-<%= link_to("I need a buddy!", "/events/#{@event.id}/groups") %>
+<div class="groups-container">
+  <h4>Groups</h4>
+  <%@event.groups.each do |group|%>
+    <ul>
+      <li><%= group.name %></li>
+      <li>Cap: <%= group.size %></li>
+      <li><%=link_to "Ask to join my squad", class: "join-squad-button"%></li>
+    </ul>
+  <%end%>
+</div>
 
-<%= link_to("Ask to join my squad!", "/events/#{@event.id}/groups/new") %>
+
+
+
+
+
+
+
+
+
+
+
