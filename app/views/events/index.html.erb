@@ -1,8 +1,11 @@
 <h2>Events</h2>
 
 <% @events.each do |event| %>
-
-<li><%=link_to(event.name, event) %>
-</li>
-<br>
+  <div class="jumbotron container-fluid">
+    <div class="col-md-6 jumbotext">
+      <h3><%=link_to(event.name, event) %></h3>
+      <p><%= event.description.truncate(300) %></p>
+    </div>
+    <%= image_tag(event.logo_url, class: "logo-index") %>
+  </div>
 <% end  %>

@@ -18,12 +18,14 @@ class Eventbrite
         new_event = Event.new(
           url: event["url"],
           name: event["name"]["text"],
+          description: event["description"]["text"],
           start: event["start"]["local"],
           address: event["venue"]["address"]["address_1"],
           latitude: event["venue"]["address"]["latitude"],
           longitude: event["venue"]["address"]["longitude"],
           venue: event["name"],
           eventbrite_id: event["id"],
+          logo_url: event["logo"]["url"]
           )
         new_event.save
       end
