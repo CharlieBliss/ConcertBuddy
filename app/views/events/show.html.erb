@@ -1,10 +1,14 @@
 <h1> <%= @event.name %> </h1>
-
-<ul>
-  <li>Starts <%= std_format_date(@event.start)%></li>
-  <li>Location: <%= @event.address.to_s + ", " + "new york " %></li>
-  <li>More Information: <a href=<%= @event.url %>>At their Website</a></li>
-</ul>
+  <h3>Starts <%= std_format_date(@event.start)%></h3>
+  <h3>Location: <%= @event.address.to_s + ", " + "new york " %></h3>
+  <h3>More Information: <a href=<%= @event.url %>>At their Website</a></h3>
+  <div class="description-photo">
+    <div class="col-md-8">
+      <p><%= @event.description %></p>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag(@event.logo_url) %>
+    </div>
 
 
 <%= link_to("I need a buddy!", "/events/#{@event.id}/groups/new") %>
