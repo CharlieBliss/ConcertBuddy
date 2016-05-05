@@ -9,9 +9,10 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.event = Event.find_by(id: params[:event_id])
     if @group.save
-      redirect_to event_group_path(@group, @group.event)
+      redirect_to user_path(@current_user)
     else
-      binding.pry
+      flash[:notice] = "There was an error saving your group. Please try again."
+      redirect_to new_event_group_path
     end
   end
 
