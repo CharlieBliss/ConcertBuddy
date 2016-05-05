@@ -6,11 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
-User.create({name: 'Thomas', email: 'Thomas@Yancey.web', password_digest: 'assword', about: "I am a cool guy who loves heading out to concerts, laying down on the floor, and crying my eyes out" })
-
-Event.create({name: "Tommys Concert", url: "www.google.com", start: DateTime.now})
-
-
+Group.create(event_id: 1, name: "Party Down", size: 2, owner_id: 1)
+Tag.create(title: "Hates loud noise")
+Tag.create(title: "Scared of Animals")
+Tag.create(title: "Bright Orange Skin")
+Tag.create(title: "Frightening Visage")
 Tag.create({title: "cool"})
 

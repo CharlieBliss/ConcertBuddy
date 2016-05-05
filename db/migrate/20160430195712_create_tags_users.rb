@@ -1,6 +1,6 @@
-class CreateUsersTags < ActiveRecord::Migration
+class CreateTagsUsers < ActiveRecord::Migration
   def change
-    create_table :users_tags do |t|
+    create_table :tags_users do |t|
       t.integer :tag_id, null: false
       t.integer :user_id, null: false, index: true
 
