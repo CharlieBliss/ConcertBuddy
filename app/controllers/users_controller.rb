@@ -14,13 +14,18 @@ class UsersController < ApplicationController
   #   end
   # end
 
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def show
     @user = User.find(params[:id])
     groups = @user.groups + @user.owned_groups
 
     @groups = groups.sort{|a,b| a.name <=> b.name }
-
   end
+
   def something
     binding.pry
     redirect_to root_path

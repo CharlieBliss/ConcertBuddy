@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     resources :groups, only: [:new,:create,:index,:show]
   end
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
+
 
   get 'auth/:provider/callback', to: "sessions#create"
 
