@@ -1,0 +1,15 @@
+<%= @user.name %>
+
+<h3>My Groups<h3>
+
+<% @groups.each do |group| %>
+<%= group.name %>  is going to <%= group.event.name %>
+ <% if group.owner == @user %> (Owner)
+<% end %>
+<% end %>
+
+
+<h3> About me: <h3>
+<%@user.tags.each do |tag| %>
+<%= tag.title %>
+<% end %>

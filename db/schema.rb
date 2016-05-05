@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160504013831) do
+ActiveRecord::Schema.define(version: 20160505204404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,14 +35,25 @@ ActiveRecord::Schema.define(version: 20160504013831) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.integer "event_id",            null: false
-    t.string  "name",     limit: 50
-    t.integer "size",     limit: 2,  null: false
-    t.integer "owner_id",            null: false
+    t.integer  "event_id",              null: false
+    t.string   "name",       limit: 50
+    t.integer  "size",       limit: 2,  null: false
+    t.integer  "owner_id",              null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   add_index "groups", ["event_id"], name: "index_groups_on_event_id", using: :btree
   add_index "groups", ["owner_id"], name: "index_groups_on_owner_id", using: :btree
+
+  create_table "groups_tags", force: :cascade do |t|
+    t.integer  "tag_id",     null: false
+    t.integer  "group_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "groups_tags", ["group_id"], name: "index_groups_tags_on_group_id", using: :btree
 
   create_table "groups_users", force: :cascade do |t|
     t.integer  "group_id",   null: false
@@ -60,6 +71,15 @@ ActiveRecord::Schema.define(version: 20160504013831) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tags_users", force: :cascade do |t|
+    t.integer  "tag_id",     null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tags_users", ["user_id"], name: "index_tags_users_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "provider"
     t.string   "uid"
@@ -70,14 +90,5 @@ ActiveRecord::Schema.define(version: 20160504013831) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "users_tags", force: :cascade do |t|
-    t.integer  "tag_id",     null: false
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "users_tags", ["user_id"], name: "index_users_tags_on_user_id", using: :btree
 
 end
