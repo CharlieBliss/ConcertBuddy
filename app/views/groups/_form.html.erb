@@ -1,6 +1,6 @@
 
  <div class="left">
-  <%= form_for(@group, url: event_group_path(@event.id), html: {class: 'form-horizontal', multipart: true}) do |f| %>
+  <%= form_for(@group, url: new_event_group_path(@event, @group), html: {class: 'form-horizontal', multipart: true}) do |f| %>
   <div class="form-group">
     <%= f.label :name, class: 'col-sm-2 control-label' %>
     <div class="col-sm-10">
