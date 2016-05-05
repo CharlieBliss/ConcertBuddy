@@ -2,4 +2,4 @@
 
 We created this app at Spotify's monthly music hackathon on April 29, 2016.
 
-Developed by: [Charlie Bliss](https://github.com/CharlieBliss), [https://github.com/nataliecodes](Natalie Polen), [https://github.com/williej](Will Van Wart), and [https://github.com/thomas-yancey](Thomas Yancey). 
+Developed by: [Charlie Bliss](https://github.com/CharlieBliss), [Natalie Polen](https://github.com/nataliecodes), [Will Van Wart](https://github.com/williej), and [Thomas Yancey](https://github.com/thomas-yancey). 
