@@ -16,6 +16,12 @@ class GroupsController < ApplicationController
     end
   end
 
+  def index
+    event = Event.find(params[:event_id])
+    @groups = event.groups
+    render partial: '/groups/groups', layout: false
+  end
+
   def show
     @group = Group.find_by(id: params[:group_id])
   end
