@@ -1,5 +1,7 @@
 == ConcertBuddy
 
-We created this app at Spotify's monthly music hackathon on April 29, 2016.
+We created this app at Spotify's Gender in Music hackathon, part of the monthly music hackathon series, on April 29, 2016.
 
-Developed by: [Charlie Bliss](http://github.com/CharlieBliss), [Natalie Polen](http://github.com/nataliecodes), [Will Van Wart](http://github.com/williej), and [Thomas Yancey](http://github.com/thomas-yancey). 
+This app idea came from the concept that often, we want to find people to attend concerts with when our friends aren't available or interested in the performer(s). It's easy to imagine a member of a sexual or gender minority wanting a supportive friend in a crowd of spectators. 
+
+Developed by: Charlie Bliss, Natalie Polen, Will Van Wart, and Thomas Yancey. 
