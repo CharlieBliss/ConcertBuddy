@@ -22,18 +22,19 @@ ActiveRecord::Schema.define(version: 20160505204404) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string   "url",           null: false
-    t.string   "name",          null: false
+    t.integer  "provider_id", null: false
+    t.string   "url",         null: false
+    t.string   "name",        null: false
     t.text     "description"
     t.datetime "start"
     t.string   "address"
-    t.string   "eventbrite_id"
+    t.string   "event_id"
     t.string   "latitude"
     t.string   "longitude"
     t.string   "venue"
     t.text     "logo_url"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "groups", force: :cascade do |t|
