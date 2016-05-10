@@ -9,6 +9,15 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
+require "songkick/oauth2/provider"
+
+
+
+Songkick::OAuth2::Provider.realm = 'concertBuddy'
+Songkick::OAuth2::Provider.enforce_ssl = true
+
+
+
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -20,6 +29,8 @@ module ConcertBuddy
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.

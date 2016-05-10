@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :groups
   has_many :owned_groups, class_name: :Group, foreign_key: :owner_id
 
+   include Songkick::OAuth2::Model::ClientOwner
+   include Songkick::OAuth2::Model::ResourceOwner
+
   validates :email, uniqueness: true
   # format: {with: /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/, message: "Not a valid Email Address"}
   validates :about, length: {maximum: 500}

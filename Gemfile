@@ -33,6 +33,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'omniauth'
 gem 'omniauth-eventbrite', '~> 0.0.6'
+gem 'songkick-oauth2-provider'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

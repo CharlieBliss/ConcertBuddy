@@ -12,6 +12,13 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
 
 
+  get '/oauth/apps/new', to: "oauth#new"
+
+  post '/oauth/apps', to: "oauth#create"
+
+  # get '/oauth/authorize' to: "oauth#"
+
+
   get 'auth/:provider/callback', to: "sessions#create"
 
   get '/users/something', to: 'users#something'

@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Songkick::OAuth2::Model::Schema.migrate
+
 Group.create(event_id: 1, name: "Party Down", size: 2, owner_id: 1)
 Tag.create(title: "Hates loud noise")
 Tag.create(title: "Scared of Animals")
