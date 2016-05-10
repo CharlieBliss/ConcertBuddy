@@ -26,7 +26,6 @@ class Eventbrite
       res = nil
       until res && self.query["page"] > res["pagination"]["page_count"]
         res = events_response
-        binding.pry
         res["events"].each do |event|
           new_event = Event.new(
             provider_id: 1,

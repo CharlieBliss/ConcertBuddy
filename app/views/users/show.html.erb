@@ -10,6 +10,9 @@
 
 
 <h3> About me: <h3>
+
+<%= @user.about %>
 <%@user.tags.each do |tag| %>
+
 <%= tag.title %>
 <% end %>

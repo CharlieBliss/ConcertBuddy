@@ -31,6 +31,13 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def update
+    @user = User.find(params[:id])
+    permitted = params.require(:user).permit(:name, :email, :about)
+    @user.update(permitted)
+    redirect_to user_path @user
+  end
+
   private
 
   # def user_params
