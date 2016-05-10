@@ -9,12 +9,12 @@ Rails.application.routes.draw do
     resources :groups, only: [:new,:create,:index,:show]
   end
 
+  get '/users/something', to: 'users#something'
+
   resources :users, only: [:show, :edit, :update]
 
 
   get 'auth/:provider/callback', to: "sessions#create"
-
-  get '/users/something', to: 'users#something'
 
   get '/eventbrite/events', to: 'eventbrite#events'
 

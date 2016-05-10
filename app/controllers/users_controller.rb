@@ -14,6 +14,11 @@ class UsersController < ApplicationController
   #   end
   # end
 
+  def something
+    binding.pry
+    redirect_to root_path
+  end
+
 
   def edit
     @user = User.find(params[:id])
@@ -24,11 +29,6 @@ class UsersController < ApplicationController
     groups = @user.groups + @user.owned_groups
 
     @groups = groups.sort{|a,b| a.name <=> b.name }
-  end
-
-  def something
-    binding.pry
-    redirect_to root_path
   end
 
   def update

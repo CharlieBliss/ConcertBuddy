@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160505204404) do
     t.text     "description"
     t.datetime "start"
     t.string   "address"
+    t.string   "city"
     t.string   "event_id"
     t.string   "latitude"
     t.string   "longitude"

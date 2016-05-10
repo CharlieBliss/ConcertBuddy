@@ -7,6 +7,7 @@ class CreateEvents < ActiveRecord::Migration
       t.text :description
       t.datetime :start
       t.string :address
+      t.string :city
       t.string :event_id
       t.string :latitude, precision: 7
       t.string :longitude, precision: 7
