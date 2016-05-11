@@ -5,42 +5,54 @@ include HTTParty
 
 
     attr_accessor :query
-    # latitude=40.7829,longitude=-73.9654
-    def initialize(lat=40.7096613,lon=-73.9611627)
-      @query = {
-        "apikey" => "tnIoiwzydaoUPOrR",
-        "location" => "geo:#{lat},#{lon}"
-      }
+
+    def initialize
+      @query = { "apikey" => "tnIoiwzydaoUPOrR"}
     end
 
-    def base_events
-        self.class.get("/events.json?", :query => query)
+    def add_location(lat=40.7096613,lon=-73.9611627)
+        self.query["location"] = "geo:#{lat},#{lon}"
     end
+
+    def location_request
+        self.class.get("/events.json?", :query => self.query)
+    end
+
+    def location_return
+        res = location_request
+        json_hash = {}
+        count = 1
+        res["resultsPage"]["results"]["event"].each do |event|
+            json_hash[count] = {}
+            json_hash[count][:url] = event["uri"]
+            json_hash[count][:name] = event["displayName"]
+            json_hash[count][:venue] = event["venue"]["displayName"]
+            json_hash[count][:event_id] = event["id"]
+            json_hash[count][:city] = event["location"]["city"]
+            json_hash[count][:latitude] = event["location"]["lat"],
+            json_hash[count][:longitude] = event["location"]["lng"]
+            if event["start"]["datetime"]
+                json_hash[count][:start] = event["start"]["datetime"]
+            else
+             json_hash[count][:start] = event["start"]["date"]
+            end
+            count += 1
+        end
+        json_hash
+    end
+
+    def base_user_calendar(username)
+        self.class.get("/users/#{username}/calendar.json?", :query => query)
+    end
+
 
     def location_events
         base_events["resultsPage"]["results"]["event"]
     end
 
-    def self.create_events
-        a = self.new
-        res = a.location_events
-        res.each do |event|
-            new_event = Event.new(
-            provider_id: 2,
-            url: event["uri"],
-            name: event["displayName"],
-            venue: event["venue"]["displayName"],
-            event_id: event["id"],
-            city: event["location"]["city"],
-            latitude: event["location"]["lat"],
-            longitude: event["location"]["lng"]
-            )
-            new_event.start = event["start"]["datetime"] ? event["start"]["datetime"] : event["start"]["date"]
-            new_event.save
-        end
-
-
+    def return_personal_reccomendations
 
     end
+
 
 end

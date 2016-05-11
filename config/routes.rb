@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get '/eventbrite/events', to: 'eventbrite#events'
 
+  get '/songkick/events', to: 'songkick#events'
+
   get '/events/paginate_events', to: 'events#paginate_events'
 
   post '/events/get_events', to: 'events#get_events'

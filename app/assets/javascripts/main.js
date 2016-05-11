@@ -1,20 +1,8 @@
 $(document).ready(function(){
   var curr_page = 1
-  $(".join-squad").on ("click", function(event){
-    event.preventDefault();
-    $.ajax({
-      method: "GET",
-      url: this.href
-    }).done(function(response){
-      $('.modal-body').html(response);
-      $('#groups-modal').modal('show');
-    });
-  });
+  getEvents();
 
-  $('#infinite-scrolling').on ('click', function(){
-
-  });
-
+  // limits the number of requests when scrolling down, infinite scroll
   $(window).bindWithDelay ('scroll', function(){
     if ($(window).scrollTop() > $(document).height() - $(window).height() - 60){
       curr_page = curr_page + 1;
@@ -27,4 +15,38 @@ $(document).ready(function(){
       });
     };
   },100);
+
+  // getLocation();
+
 });
+
+function getLocation(){
+  if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(getPosition);
+  } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function getPosition(position) {
+  debugger
+  var data = {lat: position.coords.latitude, lng: position.coords.longitude};
+  $.ajax({
+    data: data,
+    method: "get",
+    url: ""
+  })
+};
+
+var getEvents = function(){
+  $.ajax({
+    method: "GET",
+    url: "/songkick/events"
+  }).done(function(response){
+    debugger
+  });
+}
+
+var createEventDiv = function(event){
+
+}

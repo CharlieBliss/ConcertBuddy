@@ -1,0 +1,2 @@
+module SongkickHelper
+end
