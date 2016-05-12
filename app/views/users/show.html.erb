@@ -3,7 +3,7 @@
 <h3>My Groups<h3>
 
 <% @groups.each do |group| %>
-<%= group.name %>  is going to <%= group.event.name %>
+<%= group.name %>  is going to <%= group.event.title %>
  <% if group.owner == @user %> (Owner)
 <% end %>
 <% end %>

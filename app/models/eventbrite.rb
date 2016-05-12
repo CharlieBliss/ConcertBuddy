@@ -28,7 +28,6 @@ class Eventbrite
         res = events_response
         res["events"].each do |event|
           new_event = Event.new(
-            provider_id: 1,
             url: event["url"],
             name: event["name"]["text"],
             description: event["description"]["text"],

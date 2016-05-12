@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  resources :events, only: [:index, :show] do
+  resources :events, only: [:index, :show, :create] do
     resources :groups, only: [:new,:create,:index,:show]
   end
 

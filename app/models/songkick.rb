@@ -20,25 +20,27 @@ include HTTParty
 
     def location_return
         res = location_request
-        json_hash = {}
-        count = 1
-        res["resultsPage"]["results"]["event"].each do |event|
-            json_hash[count] = {}
-            json_hash[count][:url] = event["uri"]
-            json_hash[count][:name] = event["displayName"]
-            json_hash[count][:venue] = event["venue"]["displayName"]
-            json_hash[count][:event_id] = event["id"]
-            json_hash[count][:city] = event["location"]["city"]
-            json_hash[count][:latitude] = event["location"]["lat"],
-            json_hash[count][:longitude] = event["location"]["lng"]
-            if event["start"]["datetime"]
-                json_hash[count][:start] = event["start"]["datetime"]
+
+        arr_map = res["resultsPage"]["results"]["event"].map do |event|
+            saved_event = Event.find_by(event_id: event["id"])
+            # binding.pry
+            if saved_event && saved_event.groups.length > 0
+                [saved_event,true]
             else
-             json_hash[count][:start] = event["start"]["date"]
+                [new_event = Event.new(
+                url: event["uri"],
+                title: event["displayName"],
+                venue: event["venue"]["displayName"],
+                event_id: event["id"],
+                city: event["location"]["city"],
+                latitude: event["location"]["lat"],
+                longitude: event["location"]["lng"],
+                time: event["start"]["time"],
+                date: event["start"]["date"]
+                ),false]
             end
-            count += 1
         end
-        json_hash
+        arr_map
     end
 
     def base_user_calendar(username)
