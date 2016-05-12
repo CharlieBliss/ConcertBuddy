@@ -1,9 +1,10 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
-var getEvents = function(){
+var getInitialEvents = function(){
   $.ajax({
     method: "GET",
     url: "/songkick/events"
+    // data: dataPackage
   }).done(function(response){
     createAllDivs(response);
   });
@@ -19,14 +20,13 @@ var createEventDiv = function(show_array){
   var show = show_array[0]
   var form = newGroupFormBuilder(show)
   var groupShow = hasGroups(show_array)
-  debugger
+
   var div = "<div class='jumbotron container-fluid'><div class='col-md-6 jumbotext'><h2><a href=" + show.url + ">" + show.title + "</a></h2><h3>" + show.date + "</h3>" + form + groupShow + "</div></div>";
   return div;
 }
 
 var hasGroups = function(show_array){
   var string = "";
-  debugger
   if (show_array[1] === true){
     string = "<h3><a href=/events/" + show_array[0].id + "/groups>Show groups going</a></h3>"
   }

@@ -10,6 +10,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :latitude, precision: 7
       t.string :longitude, precision: 7
       t.string :venue
+      t.string :artist
       t.time :time
       t.date :date
       t.text :logo_url

@@ -27,12 +27,13 @@
           <li class="nav-item">
             <a class="nav-link" href="/users/<%= current_user.id %>">Your profile</a>
           </li>
-                      <li class="nav-item"><%= link_to 'Logout', session_path(current_user), method: :delete %> </li>
+          <li class="nav-item">
+            <%= link_to 'Logout', session_path(current_user), method: :delete %>
+          </li>
+          <li class="nav-item" id="search-link">
+            <%= link_to 'custom search', custom_search_path %>
+          </li>
 
-
-<!--           <li class="nav-item">
-            <a class="nav-link" href="/sessions/destroy">Logout</a>
-          </li> -->
 
         <% else %>
           <li class="nav-item">

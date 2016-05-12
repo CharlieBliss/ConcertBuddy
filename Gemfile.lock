@@ -101,6 +101,8 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    omniauth-spotify (0.0.9)
+      omniauth-oauth2 (~> 1.1)
     pg (0.18.4)
     pry (0.10.3)
       coderay (~> 1.1.0)
@@ -184,6 +186,7 @@ DEPENDENCIES
   jquery-rails
   omniauth
   omniauth-eventbrite (~> 0.0.6)
+  omniauth-spotify
   pg (~> 0.15)
   pry-rails
   rails (= 4.2.6)

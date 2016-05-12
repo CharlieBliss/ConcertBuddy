@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   get '/songkick/events', to: 'songkick#events'
 
+  get '/songkick/custom_search', to: 'songkick#custom_search', as: 'custom_search'
+
   get '/events/paginate_events', to: 'events#paginate_events'
 
   post '/events/get_events', to: 'events#get_events'

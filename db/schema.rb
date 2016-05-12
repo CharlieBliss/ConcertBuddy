@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160505204404) do
     t.string   "latitude"
     t.string   "longitude"
     t.string   "venue"
+    t.string   "artist"
     t.time     "time"
     t.date     "date"
     t.text     "logo_url"

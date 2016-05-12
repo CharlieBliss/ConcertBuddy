@@ -6,4 +6,11 @@ class SongkickController < ApplicationController
     render json: events.location_return
   end
 
+  def custom_search
+    binding.pry
+    events = SongKick.new
+
+  end
+
+
 end

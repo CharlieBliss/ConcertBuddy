@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   end
 
   def index
-
+    @songkick = Songkick.new
     @events = Event.paginate(page: params[:page], per_page: 15).where('start >= ?',Time.now).order('start ASC')
 
     if request.xhr?

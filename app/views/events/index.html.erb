@@ -4,9 +4,24 @@
 <div id="new-group-modal">
   <div id="myModal" class="modal">
     <div class="modal-content">
-      <span id="spanClose">×</span>
+      <span id="spanClose1">×</span>
       <div id="inner-content">
       </div>
     </div>
   </div>
+
+  <div id="search" class="modal">
+    <div class="modal-content">
+      <span id="spanClose2">×</span>
+        <form id='custom-search' action='songkick/custom_search' method='get'>
+          <input type='text' name=query[metro_area] placeholder='Metro'><br>
+          <input type='text' name=query[min_date] placeholder='Start Date'><br>
+          <input type='text' name=query[max_date] placeholder='End Date'><br>
+        <input type='submit' value='Search'>
+      </form>
+      <div id="inner-content">
+    </div>
+  </div>
+
 </div>
+

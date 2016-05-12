@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  getEvents();
+  getInitialEvents();
   eventHandlers();
 });
 
@@ -27,8 +27,12 @@ function createGroupModal() {
 
 function eventHandlers() {
 
+// fix to close by class not id
   var modal = document.getElementById('myModal');
-  var span = document.getElementById("spanClose");
+  var modalSearch = document.getElementById('search');
+  var span1 = document.getElementById("spanClose1");
+  var span2 = document.getElementById("spanClose2");
+  var searchModal = document.getElementById('search');
   // ajax to save new event and return form for a new group
   $(document).on ('submit', 'form.create-group', function(){
     event.preventDefault();
@@ -42,12 +46,22 @@ function eventHandlers() {
     });
   });
 
-  span.onclick = function() {
+  $('#search-link').on ('click', function(){
+    event.preventDefault();
+    modalSearch.style.display = "block";
+  });
+
+  span1.onclick = function() {
       modal.style.display = "none";
   };
 
+  span2.onclick = function() {
+      modalSearch.style.display = "none";
+  };
+
   window.onclick = function(event) {
-    if (event.target == modal) {
+    if (event.target == modal || event.target == modalSearch) {
+        modalSearch.style.display = "none";
         modal.style.display = "none";
     };
   };

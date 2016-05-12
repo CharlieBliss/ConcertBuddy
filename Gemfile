@@ -12,6 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'httparty'
 
+
 # all for infinite scroll
 gem 'will_paginate'
 gem 'bootstrap-sass'
@@ -33,7 +34,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'omniauth'
 gem 'omniauth-eventbrite', '~> 0.0.6'
-
+gem 'omniauth-spotify'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
