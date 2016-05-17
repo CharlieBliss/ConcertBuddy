@@ -6,15 +6,60 @@ body {
   padding-top: 50px;
 }
 
-.left {
-  float: left;
-  width: 50%;
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #f1f1f1;
+    z-index: 99
+}
+
+.event {
+    float: left;
+    position: relative;
+    height: 400px;
+    width: 300px;
+    margin: 5px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+}
+
+#custom-search {
+    width: 100%;
+    display: inline-block;
+}
+
+#custom-search input {
+    display: inline;
+    float: left;
+    margin: 0;
+}
+
+.event img {
+    text-align: center;
+    height: 300px;
+    width: 300px;
+}
+
+.event-show {
+    float: left;
+    text-align: center;
+    height: 400px;
+    width: auto;
+}
+
+.content {
+    text-align: center;
+}
+
+.content p {
+    margin: 0;
 }
 
 
 .modal {
     display: none;
-    position: fixed; /* Stay in place */
+    position: fixed; /* Stay in place
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
@@ -50,3 +95,5 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
+

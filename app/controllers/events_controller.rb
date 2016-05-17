@@ -2,6 +2,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @artist = @event.artists.first
     @groups = @event.groups
   end
 

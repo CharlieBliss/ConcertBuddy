@@ -6,7 +6,6 @@ class GroupsController < ApplicationController
   end
 
   def create
-    binding.pry
     @group = Group.new(group_params)
     @group.event = Event.find_by(id: params[:event_id])
     if @group.save

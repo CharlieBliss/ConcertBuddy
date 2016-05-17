@@ -1,36 +1,20 @@
-<h1> <%= @event.name %> </h1>
-  <h3>Starts <%= std_format_date(@event.start)%></h3>
-  <h3>Location: <%= @event.address.to_s + ", " + "new york " %></h3>
-  <h3>More Information: <a href=<%= @event.url %>>At their Website</a></h3>
-  <div class="description-photo">
-    <div class="col-md-8">
-      <p><%= @event.description %></p>
-    </div>
-    <div class="col-md-4">
-      <%= image_tag(@event.logo_url) %>
-    </div>
+<% if @artist %>
+  <h5><%= link_to "#{@artist.name} on Spotify", @artist.spotify_url %></h5>
+  <%= image_tag(@artist.image_url, class: "event-show") %>
+<% end %>
+
+<div id="map"></div>
+
+<h5> <%= @event.title %> </h5>
+<h5>Date <%= "#{std_format_date(@event.date)} #{std_format_time(@event.time)}"%></h5>
+<h5>Location: <%= @event.venue.to_s %></h5>
+<h5>More Information: <a href=<%= @event.url %>>At Songkick</a></h5>
 
 
-<%= link_to("I need a buddy!", "/events/#{@event.id}/groups/new") %>
+<div id="coordinates">
+  <%= "#{@event.latitude}|#{@event.longitude}"%>
+</div>
 
-<%= link_to "Ask to join my squad!", "/events/#{@event.id}/groups", class: "join-squad" %>
+<%= link_to("Start your own group", "/events/#{@event.id}/groups/new") %>
 
-
-<div class="modal fade" id="groups-modal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title">Groups Going</h4>
-      </div>
-      <div class="modal-body">
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+<%= link_to "Join a group", "/events/#{@event.id}/groups", class: "join-squad" %>

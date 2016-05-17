@@ -1,7 +1,23 @@
+
+
 $(document).ready(function(){
-  getInitialEvents();
-  eventHandlers();
+
+  if ($('#custom-search').length > 0){
+    updateFormDates();
+  };
+  var applicationController = new ApplicationController();
+  applicationController.init();
 });
+
+function updateFormDates(){
+  var currDate = new Date();
+  var endDate = new Date();
+  endDate.setMonth(endDate.getMonth() + 1);
+  var htmlFormatCurrDate = currDate.yyyymmdd();
+  var htmlFormatEndDate = endDate.yyyymmdd();
+  $('#start').val(htmlFormatCurrDate);
+  $('#end').val(htmlFormatEndDate);
+}
 
 function getLocation(){
   if (navigator.geolocation) {
@@ -24,52 +40,6 @@ function getPosition(position) {
 function createGroupModal() {
 
 }
-
-function eventHandlers() {
-
-// fix to close by class not id
-  var modal = document.getElementById('myModal');
-  var modalSearch = document.getElementById('search');
-  var span1 = document.getElementById("spanClose1");
-  var span2 = document.getElementById("spanClose2");
-  var searchModal = document.getElementById('search');
-  // ajax to save new event and return form for a new group
-  $(document).on ('submit', 'form.create-group', function(){
-    event.preventDefault();
-    $.ajax({
-      data: $(event.target).serialize(),
-      url: "/events",
-      method: "post"
-    }).done(function(response){
-      modal.style.display = "block";
-      $('#inner-content').html(response);
-    });
-  });
-
-  $('#search-link').on ('click', function(){
-    event.preventDefault();
-    modalSearch.style.display = "block";
-  });
-
-  span1.onclick = function() {
-      modal.style.display = "none";
-  };
-
-  span2.onclick = function() {
-      modalSearch.style.display = "none";
-  };
-
-  window.onclick = function(event) {
-    if (event.target == modal || event.target == modalSearch) {
-        modalSearch.style.display = "none";
-        modal.style.display = "none";
-    };
-  };
-
-}
-
-
-
 
 // for eventbrite, get working for songkick
 // function infiniteScroll(){

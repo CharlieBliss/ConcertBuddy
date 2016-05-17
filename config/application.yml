@@ -1,0 +1,11 @@
+
+SONGKICK_API_KEY: tnIoiwzydaoUPOrR
+
+development:
+  MAILER_HOST: "localhost:3000"
+
+test:
+  MAILER_HOST: "localhost:3000"
+
+production:
+  MAILER_HOST: "domain.com"

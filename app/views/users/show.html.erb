@@ -1,4 +1,5 @@
-<%= @user.name %>
+<%= "#{@user.first_name} #{@user.last_name}"%>
+<%= image_tag(@user.image, class: "profile-pic") %>
 
 <h3>My Groups<h3>
 
@@ -9,10 +10,3 @@
 <% end %>
 
 
-<h3> About me: <h3>
-
-<%= @user.about %>
-<%@user.tags.each do |tag| %>
-
-<%= tag.title %>
-<% end %>
