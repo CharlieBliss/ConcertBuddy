@@ -19,12 +19,29 @@ class GroupsController < ApplicationController
   def index
     event = Event.find(params[:event_id])
     @groups = event.groups
-    render partial: '/groups/groups', layout: false
   end
 
   def show
-    @group = Group.find_by(id: params[:group_id])
+    @group = Group.find_by(id: params[:id])
+    @attendees = @group.users
   end
+
+  def join
+    @group = Group.find_by(id: params[:group_id])
+    # fix to not allow for double adding to group
+    if current_user
+      if @group.users.pluck(:id).include?(current_user.id)
+        flash[:notice] = "You are already a member"
+      else
+        @group.users << current_user
+        flash[:notice] = "Successfully joined #{@group.name}"
+      end
+    else
+      flash[:notice] = "must be logged in to join a group"
+    end
+    redirect_to :back
+  end
+
 
   private
 

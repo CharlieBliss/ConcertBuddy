@@ -7,17 +7,21 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :events, only: [:index, :show, :create] do
+    get '/groups/join', to: 'groups#join'
     resources :groups, only: [:new,:create,:index,:show]
   end
 
   resources :users, only: [:show, :edit]
   resources :artists, only: [:show, :create]
   resources :sessions, only: [:new, :create, :destroy]
+
   get '/users/something', to: 'users#something'
 
   get '/songkick/events', to: 'songkick#events'
 
   get '/songkick/custom_search', to: 'songkick#custom_search', as: 'custom_search'
+
+  get '/songkick/artist_search', to: 'songkick#artist_search', as: 'artist_search'
 
   get '/events/paginate_events', to: 'events#paginate_events'
 

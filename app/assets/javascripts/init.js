@@ -1,5 +1,3 @@
-
-
 $(document).ready(function(){
 
   if ($('#custom-search').length > 0){

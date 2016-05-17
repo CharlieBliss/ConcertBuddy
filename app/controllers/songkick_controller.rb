@@ -37,5 +37,14 @@ class SongkickController < ApplicationController
     render json: events.location_return
   end
 
+  def artist_search
+    artist_search = Songkick.new
+    artist_id = artist_search.artist_match(params[:artist])
+    if artist_id
+      artist_search.remove_query
+      render json: artist_search.search_artist_id(artist_id)
+    end
+  end
+
 
 end

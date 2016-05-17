@@ -1,0 +1,9 @@
+  <div class="modal-group-container">
+    <a href=<%="/events/#{group.event_id}/groups/#{group.id}"%>>
+    <%= image_tag(group.owner.image, class: "profile-pic")  %>
+    <h3><%= link_to group.name, event_group_path(group.event_id, group) %></h3>
+    <p>Group max size: <%= group.size %></p>
+    <p>Current count attending: <%= group.users.length + 1 %></p>
+    <p>Group organizer: <%= group.owner.first_name %></p>
+    </a>
+  </div>
