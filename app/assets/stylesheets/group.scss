@@ -1,10 +1,4 @@
-.profile-pic {
-  height: 150px;
-  width: auto;
-  border-radius: 100%;
-}
-
-.user-show {
+.modal-group-container {
     float: left;
     position: relative;
     height: 200px;
@@ -14,12 +8,12 @@
     border-radius: 4px;
 }
 
-.user-show img {
+.modal-group-container img {
   float: left;
   margin-left: 20px;
   margin-top: 20px;
 }
 
-.user-show h3, p {
+.modal-group-container h3, p {
   text-align: center;
 }

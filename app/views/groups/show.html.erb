@@ -1,0 +1,19 @@
+
+<h2><%= @group.name %></h2>
+
+<form class='join-group' action='/events/<%= @group.event_id %>/groups/join'><input type='hidden' name=group_id value=<%=@group.id%>><input type='submit' value='Join Group'></form>
+
+<%= link_to "join group", "/events/#{@group.event_id}/groups/#{@group.id}/join" %>
+<div class="group-owner">
+  <h3>Group organizer</h3>
+  <%= render partial: "/groups/group_owner", locals: {user: @group.owner }  %>
+</div>
+
+<% if @attendees.any? %>
+<div class="group-members">
+  <h3>Attending</h3>
+  <% @attendees.each do |attendee| %>
+    <%= render partial: "/groups/group_member", locals: {user: attendee} %>
+  <% end %>
+<% end %>
+

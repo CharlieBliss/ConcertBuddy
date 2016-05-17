@@ -36,11 +36,26 @@ ApplicationController.prototype = {
   },
 
   eventsIndexHandlers: function(){
+    // custom search
     $(document).on ('submit', 'form#custom-search', function(){
       event.preventDefault();
       $.ajax({
         data: $(event.target).serialize(),
         url: "/songkick/custom_search",
+        method: "get",
+      }).done(function(response){
+        // modal.style.display = "none";
+        $('#posts').empty();
+        this.addAndBuildEvents(response);
+      }.bind(this));
+    }.bind(this));
+
+    // artist search
+    $(document).on ('submit', 'form#artist-search', function(){
+      event.preventDefault();
+      $.ajax({
+        data: $(event.target).serialize(),
+        url: "/songkick/artist_search",
         method: "get",
       }).done(function(response){
         // modal.style.display = "none";
