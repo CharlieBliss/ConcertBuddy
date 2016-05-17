@@ -7,11 +7,16 @@ include HTTParty
     attr_accessor :query
 
     def initialize
-      @query = { "apikey" => "tnIoiwzydaoUPOrR"}
+      @query = { "apikey" => ENV["SONGKICK_API_KEY"]}
     end
 
     def add_location(lat=40.7096613,lon=-73.9611627)
         self.query["location"] = "geo:#{lat},#{lon}"
+    end
+
+    def add_dates(min_date, max_date)
+      self.query["min_date"] = min_date
+      self.query["max_date"] = max_date
     end
 
     def location_request
@@ -20,39 +25,28 @@ include HTTParty
 
     def location_return
         res = location_request
-        json_hash = {}
-        count = 1
-        res["resultsPage"]["results"]["event"].each do |event|
-            json_hash[count] = {}
-            json_hash[count][:url] = event["uri"]
-            json_hash[count][:name] = event["displayName"]
-            json_hash[count][:venue] = event["venue"]["displayName"]
-            json_hash[count][:event_id] = event["id"]
-            json_hash[count][:city] = event["location"]["city"]
-            json_hash[count][:latitude] = event["location"]["lat"],
-            json_hash[count][:longitude] = event["location"]["lng"]
-            if event["start"]["datetime"]
-                json_hash[count][:start] = event["start"]["datetime"]
-            else
-             json_hash[count][:start] = event["start"]["date"]
-            end
-            count += 1
+        arr_map = res["resultsPage"]["results"]["event"].map do |event|
+          if Event.find_by(event_id: event["id"])
+            Event.find_by(event_id: event["id"])
+          else
+            Event.create_with_songkick(event)
+          end
         end
-        json_hash
+        arr_map
+    end
+
+    def self.headliner(event)
+      event["performance"].each {|perf| return perf["artist"]["displayName"] if perf["billingIndex"] == 1}
+      nil
     end
 
     def base_user_calendar(username)
-        self.class.get("/users/#{username}/calendar.json?", :query => query)
+      self.class.get("/users/#{username}/calendar.json?", :query => query)
     end
 
 
     def location_events
-        base_events["resultsPage"]["results"]["event"]
+      base_events["resultsPage"]["results"]["event"]
     end
-
-    def return_personal_reccomendations
-
-    end
-
 
 end

@@ -1,10 +1,6 @@
-  <div class="jumbotron container-fluid">
-    <div class="col-md-6 jumbotext">
-      <h3><%=link_to(event.name, event) %></h3>
-      <p><%= std_format_date(event.start) %>
-      <% if event.description %>
-        <p><%= event.description.truncate(300) %></p>
-      <% end %>
-    </div>
-    <%= image_tag(event.logo_url, class: "logo-index") %>
-  </div>
+<h3><%=link_to(event.name, event) %></h3>
+<p><%= std_format_date(event.start) %>
+<% if event.description %>
+  <p><%= event.description.truncate(300) %></p>
+<% end %>
+<%= image_tag(event.logo_url, class: "logo-index") %>

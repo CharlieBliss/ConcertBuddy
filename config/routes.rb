@@ -1,40 +1,47 @@
 Rails.application.routes.draw do
-  get 'home/index'
 
-  get 'home/profile'
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  resources :events, only: [:index, :show] do
+  resources :events, only: [:index, :show, :create] do
     resources :groups, only: [:new,:create,:index,:show]
   end
 
+  resources :users, only: [:show, :edit]
+  resources :artists, only: [:show, :create]
+  resources :sessions, only: [:new, :create, :destroy]
   get '/users/something', to: 'users#something'
 
-  resources :users, only: [:show, :edit, :update]
-
-
-  get 'auth/:provider/callback', to: "sessions#create"
-
-  get '/eventbrite/events', to: 'eventbrite#events'
-
   get '/songkick/events', to: 'songkick#events'
+
+  get '/songkick/custom_search', to: 'songkick#custom_search', as: 'custom_search'
 
   get '/events/paginate_events', to: 'events#paginate_events'
 
   post '/events/get_events', to: 'events#get_events'
 
-  resources :users, only: [:new, :create]
+  root 'events#index'
+
+
+  # get '/sessions/spotify_callback', to: 'sessions#spotify_callback'
+
+  # get '/sessions/spotify_request', to: 'sessions#spotify_request'
+
+  # get '/sessions/spotify_create', to: 'sessions#create', as: "create_with_token"
+
+
+
 
   #new and users#create to routes
 
-  resources :sessions, only: [:new, :create]
 
-  resources :sessions, only: [:new, :create, :destroy]
 
-  #destory
+
   # You can have the root of your site routed with "root"
-  root 'events#index'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

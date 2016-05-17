@@ -1,25 +1,24 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
 
-  has_and_belongs_to_many :tags
   has_and_belongs_to_many :groups
   has_many :owned_groups, class_name: :Group, foreign_key: :owner_id
 
-  validates :email, uniqueness: true
-  # format: {with: /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/, message: "Not a valid Email Address"}
-  validates :about, length: {maximum: 500}
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, :omniauth_providers => [:google_oauth2]
 
-  def self.sign_in_from_omniauth(auth)
-    find_by(provider: auth['provider'], uid: auth['uid'])
-  end
-
-  def self.create_user_from_omni_auth(auth)
-    create(
-      provider: auth[:provider],
-      uid: auth[:uid],
-      name: auth[:info][:name],
-      email: auth[:info][:email],
-      token: auth[:credentials][:token]
-      )
+   def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.first_name = auth.info.first_name
+      user.last_name = auth.info.last_name
+      user.email = auth.info.email
+      user.image = auth.info.image
+      user.password = Devise.friendly_token[0,20]
+    end
   end
 
 end
