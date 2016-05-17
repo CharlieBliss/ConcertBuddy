@@ -1,6 +1,4 @@
 
-SONGKICK_API_KEY: tnIoiwzydaoUPOrR
-
 development:
   MAILER_HOST: "localhost:3000"
 

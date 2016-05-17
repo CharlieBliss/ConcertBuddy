@@ -1,13 +1,10 @@
 class Authorize
   include HTTParty
 
-  CLIENT_ID = "c2ad8981609d4b11ab13252b21847689"
-  SECRET = "9c36827575bd4defb36000e264e1509d"
-
   def self.spotify_token_response(code)
     base_url = "https://accounts.spotify.com/api/token"
 
-    encoded = Base64.strict_encode64("#{CLIENT_ID}:#{SECRET}")
+    encoded = Base64.strict_encode64("#{ENV["SPOTIFY_CLIENT_ID"]}:#{ENV["SPOTIFY_SECRET"]}")
     headers = {"Authorization" => "Basic #{encoded}"}
     post_params = {
       "grant_type": "authorization_code",
