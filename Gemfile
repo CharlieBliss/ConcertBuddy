@@ -12,7 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'httparty'
 
-  gem 'devise'
+gem 'devise'
 
 # all for infinite scroll
 gem 'will_paginate'
@@ -34,8 +34,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'omniauth'
-gem 'omniauth-eventbrite', '~> 0.0.6'
-gem 'omniauth-spotify'
 gem 'omniauth-google-oauth2'
 # Use Unicorn as the app server
 # gem 'unicorn'

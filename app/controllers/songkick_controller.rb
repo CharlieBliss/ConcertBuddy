@@ -1,11 +1,9 @@
 class SongkickController < ApplicationController
 
   def events
-    if current_user
-      events = Songkick.new
-      events.add_location
-      render json: events.location_return
-    end
+    events = Songkick.new
+    events.add_location
+    render json: events.location_return
   end
 
   def custom_search
