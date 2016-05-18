@@ -2,11 +2,13 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    # @venue = Venue.find_or_create_by_event(@event)
     @artist = @event.artists.first
     @groups = @event.groups
   end
 
   def create
+    binding.pry
     @event = Event.find_by(event_id: event_params[:event_id]) || Event.create(event_params)
     if @event
       render partial: "groups/form", locals: {event: @event, group: Group.new }
