@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  get '/events/has_groups', to: 'events#has_groups'
+
   resources :events, only: [:index, :show, :create] do
     get '/groups/join', to: 'groups#join'
     resources :groups, only: [:new,:create,:index,:show]

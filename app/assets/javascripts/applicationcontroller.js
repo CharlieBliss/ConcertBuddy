@@ -65,6 +65,20 @@ ApplicationController.prototype = {
       }.bind(this));
     }.bind(this));
 
+    $(document).on ('submit', 'form#has-groups', function(){
+      event.preventDefault();
+      $.ajax({
+        data: $(event.target).serialize(),
+        url: "/events/has_groups",
+        method: "get",
+      }).done(function(response){
+        // modal.style.display = "none";
+        $('#posts').empty();
+        this.addAndBuildEvents(response);
+      }.bind(this));
+    }.bind(this));
+
+
     // ajax to save new event and return form for a new group change to use id and not create, action to groups not events
     // $(document).on ('submit', 'form.create-group', function(){
     //   event.preventDefault();
