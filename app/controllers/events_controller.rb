@@ -34,7 +34,6 @@ class EventsController < ApplicationController
   end
 
   def paginate_events
-    binding.pry
   end
 
   private

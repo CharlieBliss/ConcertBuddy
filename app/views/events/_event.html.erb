@@ -1,6 +1,1 @@
-<h3><%=link_to(event.name, event) %></h3>
-<p><%= std_format_date(event.start) %>
-<% if event.description %>
-  <p><%= event.description.truncate(300) %></p>
-<% end %>
-<%= image_tag(event.logo_url, class: "logo-index") %>
+<h3><%=link_to(event.title, event) %></h3>

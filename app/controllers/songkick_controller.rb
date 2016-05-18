@@ -23,7 +23,6 @@ class SongkickController < ApplicationController
         events.add_location(lat,lng)
       else
         flash[:notice] = "address entered was not valid, try to be more specific"
-        binding.pry
         redirect_to root_path
       end
 

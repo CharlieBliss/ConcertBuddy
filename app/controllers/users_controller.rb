@@ -4,13 +4,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-
-  def something
-    binding.pry
-    redirect_to root_path
-  end
-
-
   def edit
     @user = User.find(params[:id])
   end

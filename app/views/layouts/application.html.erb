@@ -14,7 +14,6 @@
     <nav>
       <ul>
       <li><a class="site-name">LinkUP</a></li>
-        <li class="navbar-item"><a class="nav-link" href="/users/something">Binding</a></li>
         <% if current_user %>
           <li class="navbar-item"><%=link_to 'Your profile',user_path(current_user) %></li>
           <li class="navbar-item"><%= link_to 'Logout', session_path(current_user), method: :delete %></li>
