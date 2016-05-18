@@ -25,6 +25,7 @@ ApplicationController.prototype = {
     this.events = [];
     for (var i = 0; i < events.length; i++ ){
       this.events.push(events[i]);
+      debugger
       if (i === events.length - 1){
         for (var i = 0; i < this.events.length; i++){
           this.artistController.createAndReturnArtist(this.events[i]);

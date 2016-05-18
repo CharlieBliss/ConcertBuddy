@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   get '/songkick/artist_search', to: 'songkick#artist_search', as: 'artist_search'
 
+  get '/venues/search', to: 'venues#search', as: "venue_search"
+
   get '/events/paginate_events', to: 'events#paginate_events'
 
   post '/events/get_events', to: 'events#get_events'

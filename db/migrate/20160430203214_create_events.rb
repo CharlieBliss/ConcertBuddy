@@ -10,6 +10,8 @@ class CreateEvents < ActiveRecord::Migration
       t.string :latitude, precision: 7
       t.string :longitude, precision: 7
       t.string :venue
+      t.integer :songkick_artist_id
+      t.integer :songkick_venue_id
       t.string :artist_name
       t.time :time
       t.date :date
