@@ -11,7 +11,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'httparty'
-
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'sass-rails', '>= 3.2'
 gem 'devise'
 
 # all for infinite scroll
@@ -61,4 +62,3 @@ group :development do
 
 
 end
-
