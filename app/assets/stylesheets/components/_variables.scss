@@ -62,7 +62,6 @@ $padding: 1em;
 // MIXINS
 
 $radius: 2px;
-$transition background .1s linear;
 
 // round corners or Border radius
 .round-corners {
@@ -72,8 +71,3 @@ $transition background .1s linear;
 }
 
 // animation transitions
-.transition {
-  -moz-transition: $transition;
-  -webkit-transition: $transition;
-  transition: background $transition;
-}
