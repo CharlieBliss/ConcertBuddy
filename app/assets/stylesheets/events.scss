@@ -26,9 +26,11 @@ nav {
   font-family: $heading-copy;
   font-size: $large-header-size;
   color: $off-white;
+  letter-spacing: 3px;
 }
 
 #login-form .btn {
+  margin-top: ($margin - 0.5);
   width: 25%;
   text-align: center;
 }
