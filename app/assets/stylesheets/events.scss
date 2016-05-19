@@ -5,7 +5,7 @@
 @import "components/_variables.scss";
 
 body {
-  padding-top: ($padding * 6);
+  padding-top: ($padding * 4);
   background: $navy2;
 }
 
@@ -23,7 +23,6 @@ nav {
 }
 
 #login-form label {
-  width: 100%;
   margin-bottom: ($margin - 0.6);
   font-family: $heading-copy;
   font-size: $medium-header-size;
