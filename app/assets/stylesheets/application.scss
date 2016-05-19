@@ -22,6 +22,14 @@
 @import "user";
 @import "venues";
 
+
+h1 {
+  color: $off-white;
+  letter-spacing: 3px;
+  font-size: $large-header-size;
+  text-align: center;
+}
+
 .centered {
   text-align: center;
 }

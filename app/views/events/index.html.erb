@@ -4,6 +4,7 @@
       <div class="col-lg-6">
         <form id='custom-search' action='songkick/custom_search' method='get'>
           <div class="form-group">
+            <h1>Search by Location & <br>Start Date</h1>
             <label>Location</label>
             <input type="location" class="form-control" name=location placeholder='Location'>
           </div>
@@ -22,12 +23,17 @@
       </div>
       <div id="has-groups-form" class="col-lg-6">
         <form id='artist-search' action='songkick/artist_search' method='get'>
-          <input type='text' name=artist placeholder='artist'>
-          <input type='submit' value='Search'>
+          <div class="form-group">
+            <h1>Search by Has Groups</h1>
+            <input type='text' name=artist placeholder='artist'>
+            <input type='submit' value='Search'>
+          </div>
         </form>
-        <form id='has-groups' action='songkick/artist_search' method='get'>
-          <input type='submit' value='has groups'>
-        </form>
+        <div class="form-group">
+          <form id='has-groups' action='songkick/artist_search' method='get'>
+            <input type='submit' value='has groups'>
+          </form>
+        </div>
       </div>
     </div>
   </div>
