@@ -5,11 +5,9 @@
 @import "components/_variables.scss";
 
 body {
-  padding-top: ($padding * 6);
+  padding-top: ($padding * 4);
   background: $navy2;
 }
-
-
 
 nav {
     position: fixed;
@@ -19,22 +17,39 @@ nav {
     z-index: 99
 }
 
+#login-form h1 {
+  font-family: $heading-copy-bold;
+  font-weight: 900;
+  margin-bottom: ($margin - 0.75);
+}
+
 #login-form label {
-  width: 100%;
   text-align: center;
+  width: 100%;
   margin-bottom: ($margin - 0.6);
   font-family: $heading-copy;
-  font-size: $large-header-size;
+  font-size: $medium-header-size;
   color: $off-white;
-  letter-spacing: 3px;
+}
+
+#login-form input {
+  margin: 0 auto;
+  width: 75%;
 }
 
 #login-form .btn {
   margin-top: ($margin - 0.5);
   border-radius: $radius;
   width: 25%;
-  text-align: center;
 }
+
+#has-groups-form .btn {
+  margin-top: ($margin * 1.5);
+}
+//
+// #has-groups-form {
+//   margin-left: ($margin * 1);
+// }
 
 
 

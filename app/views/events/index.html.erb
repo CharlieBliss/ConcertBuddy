@@ -1,9 +1,10 @@
 <div id="login-form">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 col-lg-offset-2">
+      <div class="col-lg-6">
         <form id='custom-search' action='songkick/custom_search' method='get'>
           <div class="form-group">
+            <h1>Location & Time</h1>
             <label>Location</label>
             <input type="location" class="form-control" name=location placeholder='Location'>
           </div>
@@ -19,14 +20,26 @@
             <button type="submit" class="btn btn-large btn-success">Submit</button>
           </div>
         </form>
-
+      </div>
+      <div id="has-groups-form" class="col-lg-6">
         <form id='artist-search' action='songkick/artist_search' method='get'>
-          <input type='text' name=artist placeholder='artist'>
-          <input type='submit' value='Search'>
+          <div class="form-group">
+            <h1>Artist Name</h1>
+            <label>Artist</label>
+            <input type='text' class="form-control" name=artist placeholder='artist'>
+            <div class="centered">
+              <button type="submit" class="btn btn-large btn-success">Submit</button>
+            </div>
+          </div>
         </form>
-
         <form id='has-groups' action='songkick/artist_search' method='get'>
-          <input type='submit' value='has groups'>
+          <div class="form-group">
+            <h1>Has Groups</h1>
+            <label>Groups</label>
+            <div class="centered">
+              <button type="submit" class="btn btn-large btn-success">Has Groups</button>
+            </div>
+          </div>
         </form>
       </div>
     </div>
