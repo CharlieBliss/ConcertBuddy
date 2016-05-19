@@ -1,18 +1,18 @@
-<div class="login-form">
+<div id="login-form">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2">
         <form id='custom-search' action='songkick/custom_search' method='get'>
           <div class="form-group">
-            <h1>Location</h1>
+            <label>Location</label>
             <input type="location" class="form-control" name=location placeholder='Location'>
           </div>
           <div class="form-group">
-            <h1>Start Date</h1>
+            <label>Start Date</label>
             <input id='start' type='date' class="form-control" value='2016-01-01' name=date[min_date] placeholder='Start Date'>
           </div>
           <div class="form-group">
-            <h1>End Date</h1>
+            <label>End Date</label>
             <input id="end" type='date' class="form-control" value='2016-01-01' name=date[max_date] placeholder='End Date'>
           </div>
           <button type="submit" class="btn btn-success">Submit</button>

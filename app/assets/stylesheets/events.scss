@@ -18,6 +18,11 @@ nav {
     z-index: 99
 }
 
+#login-form label {
+  margin-bottom: ($margin - 0.5);
+  font-size: $medium-header-size;
+}
+
 
 
 
