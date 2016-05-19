@@ -44,12 +44,4 @@ include HTTParty
     !current_response.empty? || current_response.code != 200
   end
 
-  def self.get_photo(reference)
-    res = HTTParty.get(base_uri + "/photo",
-      :query => {
-        photoreference: reference,
-        maxwidth: 400,
-        key: ENV["GOOGLE_PLACES_KEY"]})
-    binding.pry
-  end
 end

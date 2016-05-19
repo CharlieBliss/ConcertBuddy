@@ -4,4 +4,5 @@ class Artist < ActiveRecord::Base
   def self.find_or_create(artist_name)
     Artist.where('lower(name) = ?', artist_name.downcase).first || Spotify.create_artist_info(artist_name)
   end
+
 end
