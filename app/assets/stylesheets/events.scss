@@ -20,6 +20,7 @@ nav {
 #login-form h1 {
   font-family: $heading-copy-bold;
   font-weight: 900;
+  margin-bottom: ($margin - 0.5);
 }
 
 #login-form label {
@@ -33,7 +34,10 @@ nav {
   margin-top: ($margin - 0.5);
   border-radius: $radius;
   width: 25%;
-  text-align: center;
+}
+
+#has-groups-form .btn {
+  margin-top: ($margin * 1.5);
 }
 //
 // #has-groups-form {
