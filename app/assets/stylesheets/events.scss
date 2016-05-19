@@ -8,6 +8,8 @@ body {
   padding-top: ($padding * 6);
 }
 
+
+
 nav {
     position: fixed;
     width: 100%;
@@ -16,36 +18,8 @@ nav {
     z-index: 99
 }
 
-.event {
-    float: left;
-    position: relative;
-    height: 400px;
-    width: 300px;
-    margin: 5px;
-    border: 1px solid #bbb;
-    border-radius: 4px;
-}
 
-.event img {
-    text-align: center;
-    height: 300px;
-    width: 300px;
-}
 
-.event-show {
-    float: left;
-    text-align: center;
-    height: 400px;
-    width: auto;
-}
-
-.content {
-    text-align: center;
-}
-
-.content p {
-    margin: 0;
-}
 
 
 .modal {
