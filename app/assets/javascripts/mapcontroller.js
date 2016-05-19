@@ -14,33 +14,48 @@ MapController.prototype = {
       this.longitude = Number(this.placeObject.longitude);
     };
 
-    debugger
-
     var venueLocation = {lat: this.latitude, lng: this.longitude}
     var map = new google.maps.Map(mapDiv, {
       center: venueLocation,
       zoom: 15
     });
 
+    var infowindow = new google.maps.InfoWindow({
+      content: this.contentBuilder()
+    });
+
     var marker = new google.maps.Marker({
       position: venueLocation,
       map: map
     });
+
+    marker.addListener('click', function(){
+      infowindow.open(map, marker);
+    });
+
   },
 
   contentBuilder: function(){
-    if (typeOf(placeObject) === "object"){
-      return fullContentWindow();
+    if (typeof(this.placeObject) === "object"){
+      return this.fullContentWindow();
+    } else {
+      return this.standardContentWindow();
     };
+  },
+
+  standardContentWindow: function(){
+    var htmlString = this.latitude.toString() + "," + this.longitude.toString();
+    return htmlString;
   },
 
   fullContentWindow: function(){
     var htmlArray = [];
-    htmlArray.push("<h6>address: " + this.address + "</h6");
-    htmlArray.push("<h6>rating:" + this.rating + "</h6");
-    htmlArray.push("<h6>total ratings:" + this.total_ratings + "</h6");
-    htmlArray.push("<h6>phone: " + this.phone + "</h6");
-    htmlArray.push("<h6><a href=" + this.google_url + ">view on google</h6");
+    debugger
+    htmlArray.push("<p>address: " + this.placeObject.address + "</p>");
+    htmlArray.push("<p>rating:" + this.placeObject.rating + "</p>");
+    htmlArray.push("<p>total ratings:" + this.placeObject.total_ratings + "</p>");
+    htmlArray.push("<p>phone: " + this.placeObject.phone + "</p>");
+    htmlArray.push("<p><a href=" + this.placeObject.google_url + ">view on google</p>");
     return htmlArray.join("");
   }
 };

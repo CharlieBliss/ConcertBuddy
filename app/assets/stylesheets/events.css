@@ -2,9 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "components/_variables.scss";
+
 body {
-  padding-top: 50px;
+  padding-top: ($padding * 6);
+  background: $navy2;
 }
+
+
 
 nav {
     position: fixed;
@@ -20,6 +25,24 @@ nav {
   height: 400px;
 }
 
+#login-form label {
+  width: 100%;
+  text-align: center;
+  margin-bottom: ($margin - 0.6);
+  font-family: $heading-copy;
+  font-size: $large-header-size;
+  color: $off-white;
+  letter-spacing: 3px;
+}
+
+#login-form .btn {
+  margin-top: ($margin - 0.5);
+  border-radius: $radius;
+  width: 25%;
+  text-align: center;
+=======
+
+
 #map p {
   display:none;
 }
@@ -28,12 +51,6 @@ nav {
     width: 100%;
     display: inline-block;
     margin-top: 40px;
-}
-
-#custom-search input {
-    display: inline;
-    float: left;
-    margin: 0;
 }
 
 .event {
@@ -51,25 +68,6 @@ nav {
     height: 300px;
     border: 1px solid #bbb;
     border-radius: 4px;
-}
-
-.event-show {
-    float: left;
-    text-align: center;
-    height: 400px;
-    width: auto;
-}
-
-.content {
-    text-align: center;
-}
-
-.content p {
-    margin: 0;
-}
-
-.event {
-  width: 90%;
 }
 
 .modal-group-container {
@@ -188,3 +186,4 @@ nav {
 @media (min-width: 1200px) {}
 
 
+>>>>>>> start ajaxing maps to first search google places for infowindow:app/assets/stylesheets/events.css
