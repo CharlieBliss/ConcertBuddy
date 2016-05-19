@@ -48,9 +48,9 @@ $border-focus: $grey;
 $secondary-border-color: $blue1;
 
 // typography
-$body-copy: "Raleway", "Helvetica Neue", helvetica, arial, verdana, sans-serif;
-$heading-copy: "Raleway", "Helvetica Neue", helvetica, arial, verdana, sans-serif;
-$heading-copy-bold: "Helvetica Neue", helvetica, arial, verdana, sans-serif;
+$body-copy: font-family: 'Raleway', sans-serif;
+$heading-copy:font-family: 'Roboto Condensed', sans-serif;
+$heading-copy-bold: "Raleway", "Helvetica Neue", helvetica, arial, verdana, sans-serif;
 $base-font-size: 14px;
 $medium-header-size: 36px;
 $large-header-size: 54px;
