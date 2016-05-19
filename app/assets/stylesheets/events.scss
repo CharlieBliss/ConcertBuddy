@@ -6,6 +6,7 @@
 
 body {
   padding-top: ($padding * 6);
+  background: $navy2;
 }
 
 
@@ -21,8 +22,15 @@ nav {
 #login-form label {
   width: 100%;
   text-align: center;
-  margin-bottom: ($margin - 0.5);
-  font-size: $medium-header-size;
+  margin-bottom: ($margin - 0.6);
+  font-family: $heading-copy;
+  font-size: $large-header-size;
+  color: $off-white;
+}
+
+#login-form .btn {
+  width: 25%;
+  text-align: center;
 }
 
 
