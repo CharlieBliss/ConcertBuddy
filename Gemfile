@@ -6,18 +6,16 @@ gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
 gem 'httparty'
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'sass-rails', '>= 3.2'
 gem 'devise'
 
 # all for infinite scroll
 gem 'will_paginate'
 gem 'bootstrap-sass'
+gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-will_paginate'
 # Use CoffeeScript for .coffee assets and views
 # gem 'coffee-rails', '~> 4.1.0'
