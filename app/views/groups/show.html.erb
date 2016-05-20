@@ -3,10 +3,13 @@
 
 <form class='join-group' action='/events/<%= @group.event_id %>/groups/join'><input type='hidden' name=group_id value=<%=@group.id%>><input type='submit' value='Join Group'></form>
 
-<%= link_to "join group", "/events/#{@group.event_id}/groups/#{@group.id}/join" %>
 <div class="group-owner">
   <h3>Group organizer</h3>
   <%= render partial: "/groups/group_owner", locals: {user: @group.owner }  %>
+</div>
+
+<div class="message group">
+  <%= link_to "message group", new_message_path(group: @group) %>
 </div>
 
 <% if @attendees.any? %>

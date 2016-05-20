@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :groups, only: [:new,:create,:index,:show]
   end
 
+  resources :messages
   resources :users, only: [:show, :edit]
   resources :artists, only: [:show, :create]
   resources :sessions, only: [:new, :create, :destroy]
