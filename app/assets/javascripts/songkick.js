@@ -21,7 +21,8 @@ SongkickController.prototype = {
   },
 
   newGroupFormBuilder: function(show){
-    var form = "<form class='create-group' action='events/" + show.id + "/groups/new'><input type='hidden' name=show[id] value=" + show.id + "><button type='submit' class='btn btn-large btn-success'>Looking for a Group?</button></form>";
+    var button = "<button type='submit' class='btn btn-large btn-success'>Looking for a Group?</button>"
+    var form = "<form class='create-group' action='events/" + show.id + "/groups/new'><input type='hidden' name=show[id] value=" + show.id + ">" + button + "</form>";
     return form;
   },
 
