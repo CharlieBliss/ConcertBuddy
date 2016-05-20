@@ -15,10 +15,14 @@
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
         <li class="navbar-items"><%=link_to 'Profile',
                           user_path(current_user) %></li>
         <li class="navbar-items"><%= link_to 'Logout', session_path(current_user),
                                     method: :delete %></li>
+        <% else %>
+        <li class="navbar-items"><%= link_to 'Login', '/users/auth/google_oauth2', method: :get %>
+        <% end %>
       </ul>
     </div>
 
