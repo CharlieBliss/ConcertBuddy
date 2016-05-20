@@ -23,8 +23,8 @@ class SessionsController < ApplicationController
   # end
 
   def create
-
-  if User.sign_in_from_omniauth(auth)
+    binding.pry
+  if User.from_omniauth(auth)
       user = User.sign_in_from_omniauth(auth)
       session[:user_id] = user.id
 

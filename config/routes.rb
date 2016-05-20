@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :groups, only: [:new,:create,:index,:show]
   end
 
+  resources :messages
   resources :users, only: [:show, :edit]
   resources :artists, only: [:show, :create]
   resources :sessions, only: [:new, :create, :destroy]
@@ -20,6 +21,8 @@ Rails.application.routes.draw do
   get '/users/something', to: 'users#something'
 
   get '/songkick/events', to: 'songkick#events'
+
+  get '/auth/:provider/callback', to: 'sessions#create'
 
   get '/songkick/custom_search', to: 'songkick#custom_search', as: 'custom_search'
 
