@@ -38,8 +38,10 @@ body {
   margin-top: ($margin * 1.5);
 }
 
-#posts .event {
-  border: $border-color $border-size $border-type;
+#posts-container {
+  border: $border-size $border-type $border-color;
+  padding: ($padding * 2);
+  border-radius: $radius;
 }
 
 #posts .event img {
