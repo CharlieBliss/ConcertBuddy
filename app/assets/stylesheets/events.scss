@@ -53,7 +53,16 @@ body {
 
 #posts h3 a {
   font-family: $heading-copy;
+  color: $orange1;
+}
+
+#posts p {
+  font-family: $body-copy;
   color: $blue1;
+}
+
+#posts img {
+  text-align: center;
 }
 //
 // #has-groups-form {
