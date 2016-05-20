@@ -33,6 +33,7 @@
   width: 100%;
   max-width: 1600px;
   margin: 0 auto;
+  margin-top: 50px;
   padding: 0 20px;
   box-sizing: border-box; }
 .column,
@@ -43,15 +44,13 @@
 
 /* For devices larger than 400px */
 @media (min-width: 400px) {
-  .container {
-    width: 90%;
-    padding: 0; }
+
 }
 
 /* For devices larger than 550px */
 @media (min-width: 550px) {
   .container {
-    width: 90%; }
+    padding: 0 0px; }
   .column,
   .columns {
     margin-left: 4%; }
@@ -393,54 +392,3 @@ hr {
   display: table;
   clear: both; }
 
-
-/* Media Queries
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-/*
-Note: The best way to structure the use of media queries is to create the queries
-near the relevant code. For example, if you wanted to change the styles for buttons
-on small devices, paste the mobile query code up in the buttons section and style it
-there.
-*/
-
-
-/* Larger than mobile */
-@media (min-width: 400px) {}
-
-/* Larger than phablet (also point when grid becomes active) */
-@media (min-width: 550px) {}
-
-/* Larger than tablet */
-@media (min-width: 750px) {}
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    background-color: #f1f1f1;
-}
-
-nav li {
-  float: left;
-}
-
-nav li a {
-    display: block;
-    color: #000;
-    padding: 8px 0 8px 16px;
-    text-decoration: none;
-}
-
-#post {
-  clear: both;
-}
-/* Change the link color on hover */
-nav li a:hover {
-    background-color: #555;
-    color: white;
-}
-/* Larger than desktop */
-@media (min-width: 1000px) {}
-
-/* Larger than Desktop HD */
-@media (min-width: 1200px) {}
