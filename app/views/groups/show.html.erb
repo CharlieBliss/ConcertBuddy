@@ -20,3 +20,10 @@
   <% end %>
 <% end %>
 
+<% if @group.messages %>
+  <% @group.messages.each do |message| %>
+    <h6><%= message.user.first_name %></h6>
+    <p><%= message.content %></p>
+  <% end %>
+<% end %>
+
