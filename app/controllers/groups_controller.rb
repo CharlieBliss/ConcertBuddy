@@ -27,7 +27,9 @@ class GroupsController < ApplicationController
 
     @group = Group.new(group_params)
     @group.event = Event.find_by(id: params[:event_id])
+    binding.pry
     if @group.save
+      binding.pry
       UserMailer.new_group_email(@group.owner,@group).deliver_now
       redirect_to user_path(@current_user)
     else

@@ -15,14 +15,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "header";
-@import "artists";
-@import "events";
+/*@import "artists";*/
+/*@import "events";*/
 @import "group";
 @import "map";
 @import "songkick";
 @import "user";
 @import "venues";
 
+.container {
+  margin-top: 60px;
+}
 
 h1 {
   color: $off-white;
