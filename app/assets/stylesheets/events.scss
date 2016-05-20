@@ -46,6 +46,11 @@ body {
   max-width: 70%;
   height: auto;
 }
+
+#posts h3 a {
+  font-family: $heading-copy;
+  color: $blue1;
+}
 //
 // #has-groups-form {
 //   margin-left: ($margin * 1);
