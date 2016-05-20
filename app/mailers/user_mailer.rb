@@ -8,14 +8,14 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'successfully created group')
   end
 
-  def user_to_group_email(message)
+  def user_to_group_email(message, user)
+    @user = user
     @group = Group.find(message.group_id)
     @sender = User.find(message.user_id)
-    @message = message.content
 
-    @group.users.each do |user|
-      mail(to: user.email, subject: "message from #{@sender.first_name}")
-    end
+    @message = message.content
+    mail(to: @user.email, subject: "message from #{@sender.first_name}") unless @user == @sender
+
   end
 
 end
