@@ -47,6 +47,10 @@ body {
   height: auto;
 }
 
+#posts h3 {
+  text-align: center;
+}
+
 #posts h3 a {
   font-family: $heading-copy;
   color: $blue1;
