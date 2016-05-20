@@ -12,17 +12,7 @@
 </head>
 <body>
 
-    <nav>
-      <ul>
-      <li><a class="site-name">LinkUP</a></li>
-        <% if current_user %>
-          <li class="navbar-item"><%=link_to 'Your profile',user_path(current_user) %></li>
-          <li class="navbar-item"><%= link_to 'Logout', session_path(current_user), method: :delete %></li>
-        <% else %>
-          <%= link_to image_tag("google_signin.png"), "/users/auth/google_oauth2" %>
-        <% end %>
-      </ul>
-    </nav>
+    <%= render partial: "layouts/header" %>
 
     <div class="container">
        <p class="notice"><%= notice %></p>
