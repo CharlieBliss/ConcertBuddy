@@ -1,12 +1,23 @@
-<nav>
-  <ul>
-  <li><a class="site-name">LinkUP</a></li>
-    <% if current_user %>
-      <li class="nav-item"><%=link_to 'Your profile', user_path(current_user) %></li>
-      <li class="nav-item"><%= link_to 'Logout', session_path(current_user),
-                                                    method: :delete %></li>
-    <% else %>
-      <%= link_to image_tag("google_signin.png"), "/users/auth/google_oauth2" %>
-    <% end %>
-  </ul>
-</nav>
+<div class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <h1><a class="site-name">LinkUP</a></h1>
+      </div>
+
+      <div class="col-lg-9 right">
+        <div class="main-nav pull-right">
+          <ul class="list-inline">
+            <% if current_user %>
+              <li><%=link_to 'Your profile', user_path(current_user) %></li>
+              <li><%= link_to 'Logout', session_path(current_user),
+                                          method: :delete %></li>
+            <% else %>
+              <%= link_to image_tag("google_signin.png"), "/users/auth/google_oauth2" %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
