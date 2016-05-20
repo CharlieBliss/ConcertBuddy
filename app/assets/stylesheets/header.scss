@@ -1,0 +1,22 @@
+@import "components/_variables.scss";
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    background-color: $aqua1;
+    z-index: 1;
+}
+
+.navbar .navbar-brand {
+  font-family: $heading-copy-bold;
+  font-weight: 100;
+  font-size: $large-header-size;
+  color: $blue2;
+}
+
+.navbar .navbar-right .navbar-items a {
+  font-family: $heading-copy-bold;
+  font-weight: 100;
+  font-size: $medium-header-size;
+  color: $blue2;
+}

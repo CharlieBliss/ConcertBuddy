@@ -32,11 +32,10 @@ SongkickController.prototype = {
   },
 
   createEventDiv: function(show){
-
     var show = show;
     var form = this.newGroupFormBuilder(show);
     var time = this.hasTime(show);
-    var div = "<div class='event' id='event" + show.id + "''><a href='/events/" + show.id + "'><img src=" + "http://www.exaclair.com/images/placeholders/team-placeholder.jpg" + "></a><div class='content'><p><a href='/events/" + show.id + "'>" + show.artist_name + "</a> | " + show.date + " " + stringToTime(time) + "</p><p>" + show.venue + "</p>" +  form + "</div></div>";
+    var div = "<div class='event col-lg-4' id='event" + show.id + "''><a href='/events/" + show.id + "'><img src=" + "http://www.exaclair.com/images/placeholders/team-placeholder.jpg" + " class='event-image'></a><div class='content'><p class='show-artist'><a href='/events/" + show.id + "'>" + show.artist_name + "</a> | " + show.date + " " + stringToTime(time) + "</p><p class='show-venue'>" + show.venue + "</p>" +  form + "</div></div>";
     return div;
   },
 

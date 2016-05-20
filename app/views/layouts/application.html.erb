@@ -1,33 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>LinkUP</title>
+  <head>
+    <title>LinkUP</title>
+      <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed|Raleway:400,900,100' rel='stylesheet' type='text/css'>
+      <%= stylesheet_link_tag    'application', media: 'all' %>
+      <%= javascript_include_tag 'application' %>
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+      <%= csrf_meta_tags %>
+  </head>
 
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed|Raleway:400,900,100' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <!-- googlemaps -->
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-    <nav>
-      <ul>
-      <li><a class="site-name">LinkUP</a></li>
-        <% if current_user %>
-          <li class="navbar-item"><%=link_to 'Your profile',user_path(current_user) %></li>
-          <li class="navbar-item"><%= link_to 'Logout', session_path(current_user), method: :delete %></li>
-        <% else %>
-          <%= link_to image_tag("google_signin.png"), "/users/auth/google_oauth2" %>
-        <% end %>
-      </ul>
-    </nav>
-
-    <div class="container">
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-<%= yield %>
-  </div>
-</body>
+  <body>
+     <%= render partial: "layouts/header" %>
+     <p class="notice"><%= notice %></p>
+     <p class="alert"><%= alert %></p>
+     <%= yield %>
+  </body>
 </html>

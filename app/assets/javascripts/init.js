@@ -26,7 +26,6 @@ function getLocation(){
 }
 
 function getPosition(position) {
-  // debugger
   var data = {lat: position.coords.latitude, lng: position.coords.longitude};
   $.ajax({
     data: data,
