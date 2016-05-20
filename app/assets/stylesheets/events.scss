@@ -46,6 +46,15 @@ nav {
 #has-groups-form .btn {
   margin-top: ($margin * 1.5);
 }
+
+#posts .event {
+  border: $border-color $border-size $border-type;
+}
+
+#posts .event img {
+  max-width: 70%;
+  height: auto;
+}
 //
 // #has-groups-form {
 //   margin-left: ($margin * 1);
