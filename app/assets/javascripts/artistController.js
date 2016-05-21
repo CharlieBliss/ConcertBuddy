@@ -19,7 +19,6 @@ ArtistController.prototype = {
 
       var event_id = this.data.match(/event_id=([0-9]*)/)[1];
       if (response !== null && response.image_url.length > 0){
-        debugger
         $('#event' + event_id).children('a').children('.centered').children('img').attr('src',response.image_url)
       };
     }).fail(function(response){
