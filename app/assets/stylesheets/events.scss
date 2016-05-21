@@ -43,16 +43,17 @@ body {
   margin-top: ($margin * 1.5);
 }
 
-#posts .event img {
-  max-width: 70%;
-  height: auto;
-}
+// #posts .event img {
+//   max-width: 70%;
+//   height: auto;
+// }
 
 #posts h3 {
   text-align: center;
 }
 
 #posts h3 a {
+  font-size: $medium-header-size;
   font-family: $heading-copy;
   color: $orange1;
 }

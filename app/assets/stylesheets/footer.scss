@@ -1,5 +1,13 @@
 @import "components/_variables.scss";
 
-// .footer {
-//   background: $aqua1;
-// }
+.footer i {
+  color: $off-white;
+  margin-top: ($margin);
+  padding: $padding;
+}
+
+.footer #social-media-icon-container {
+  margin-top: ($margin * 2);
+  background-color: $orange1;
+  text-align: center;
+}

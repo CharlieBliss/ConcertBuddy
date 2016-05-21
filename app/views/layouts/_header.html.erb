@@ -10,7 +10,7 @@
        <span class="icon-bar"></span>
      </button>
 
-        <a class="navbar-brand" href="#">Link Up!</a>
+        <%= link_to "Link Up!", root_path, class: "navbar-brand" %>
     </div>
 
     <div class="collapse navbar-collapse">
@@ -21,7 +21,8 @@
         <li class="navbar-items"><%= link_to 'Logout', session_path(current_user),
                                     method: :delete %></li>
         <% else %>
-        <li class="navbar-items"><%= link_to 'Login', '/users/auth/google_oauth2', method: :get %>
+        <li class="navbar-items"><%= link_to 'Login', '/users/auth/google_oauth2',
+                                                                    method: :get %>
         <% end %>
       </ul>
     </div>

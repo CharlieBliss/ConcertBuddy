@@ -50,7 +50,6 @@ MapController.prototype = {
 
   fullContentWindow: function(){
     var htmlArray = [];
-    debugger
     htmlArray.push("<p>address: " + this.placeObject.address + "</p>");
     htmlArray.push("<p>rating:" + this.placeObject.rating + "</p>");
     htmlArray.push("<p>total ratings:" + this.placeObject.total_ratings + "</p>");
@@ -59,4 +58,3 @@ MapController.prototype = {
     return htmlArray.join("");
   }
 };
-
