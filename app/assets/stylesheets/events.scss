@@ -13,8 +13,8 @@ body {
 }
 
 #login-form h1 {
-  font-family: $heading-copy-bold;
-  font-weight: 900;
+  font-family: $heading-copy;
+  font-weight: 400;
   margin-bottom: ($margin - 0.75);
 }
 
@@ -22,8 +22,9 @@ body {
   text-align: center;
   width: 100%;
   margin-bottom: ($margin - 0.6);
-  font-family: $heading-copy;
+  font-family: $heading-copy-bold;
   font-size: $medium-header-size;
+  font-weight: 400;
   color: $off-white;
 }
 

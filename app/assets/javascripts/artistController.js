@@ -16,6 +16,7 @@ ArtistController.prototype = {
       data: dataPackage,
       type: "json"
     }).done(function(response){
+
       var event_id = this.data.match(/event_id=([0-9]*)/)[1];
       if (response !== null && response.image_url.length > 0){
         debugger

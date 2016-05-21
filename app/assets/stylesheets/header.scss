@@ -1,22 +1,25 @@
 @import "components/_variables.scss";
 
 .navbar {
+    padding-top: ($padding - 0.25);
     position: fixed;
     width: 100%;
+    height: 78px;
+    top: 0;
     background-color: $aqua1;
     z-index: 1;
 }
 
 .navbar .navbar-brand {
-  font-family: $heading-copy-bold;
-  font-weight: 100;
-  font-size: $large-header-size;
-  color: $blue2;
+  font-family: $heading-copy;
+  letter-spacing: 3px;
+  font-size: 68px;
+  color: $off-white;
 }
 
 .navbar .navbar-right .navbar-items a {
-  font-family: $heading-copy-bold;
-  font-weight: 100;
+  font-family: $heading-copy;
+  font-weight: 400;
   font-size: $medium-header-size;
-  color: $blue2;
+  color: $off-white;
 }

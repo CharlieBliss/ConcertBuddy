@@ -21,7 +21,6 @@ ApplicationController.prototype = {
         url: "/venues/search",
         method: 'get'
       }).done(function(response){
-
         this.mapController = new MapController(this);
         this.mapController.placeObject = response;
         this.mapController.initMap();
