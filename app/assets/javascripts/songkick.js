@@ -21,7 +21,8 @@ SongkickController.prototype = {
   },
 
   newGroupFormBuilder: function(show){
-    var form = "<form class='create-group' action='events/" + show.id + "/groups/new'><input type='hidden' name=show[id] value=" + show.id + "><input type='submit' value='looking for a group?'></form>";
+    var button = "<div class='centered'><button type='submit' class='btn btn-large btn-success'>Looking for a Group?</button></div>"
+    var form = "<form class='create-group' action='events/" + show.id + "/groups/new'><input type='hidden' name=show[id] value=" + show.id + ">" + button + "</form>";
     return form;
   },
 
@@ -35,7 +36,7 @@ SongkickController.prototype = {
     var show = show;
     var form = this.newGroupFormBuilder(show);
     var time = this.hasTime(show);
-    var div = "<div class='event col-lg-4' id='event" + show.id + "''><a href='/events/" + show.id + "'><img src=" + "http://www.exaclair.com/images/placeholders/team-placeholder.jpg" + " class='event-image'></a><div class='content'><p class='show-artist'><a href='/events/" + show.id + "'>" + show.artist_name + "</a> | " + show.date + " " + stringToTime(time) + "</p><p class='show-venue'>" + show.venue + "</p>" +  form + "</div></div>";
+    var div = "<div class='event col-lg-4' id='event" + show.id + "''><a href='/events/" + show.id + "'><div class='centered'><img src=" + "http://www.exaclair.com/images/placeholders/team-placeholder.jpg" + " class='event-image'></div></a><div class='content'><h3><a href='/events/" + show.id + "'>" + show.artist_name + "</a></h3><p class='show-date'>" + show.date + " " + stringToTime(time) + "</p><p class='show-venue'>" + show.venue + "</p>" +  form + "</div></div>";
     return div;
   },
 

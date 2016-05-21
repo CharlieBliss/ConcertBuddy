@@ -8,6 +8,10 @@ body {
   background: $navy2;
 }
 
+#login-form {
+  margin-bottom: ($margin * 3);
+}
+
 #login-form h1 {
   font-family: $heading-copy-bold;
   font-weight: 900;
@@ -38,13 +42,27 @@ body {
   margin-top: ($margin * 1.5);
 }
 
-#posts .event {
-  border: $border-color $border-size $border-type;
-}
-
 #posts .event img {
   max-width: 70%;
   height: auto;
+}
+
+#posts h3 {
+  text-align: center;
+}
+
+#posts h3 a {
+  font-family: $heading-copy;
+  color: $orange1;
+}
+
+#posts p {
+  font-family: $date-address-copy;
+  color: $blue1;
+}
+
+#posts img {
+  text-align: center;
 }
 //
 // #has-groups-form {

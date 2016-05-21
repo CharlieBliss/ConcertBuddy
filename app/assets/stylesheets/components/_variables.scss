@@ -41,8 +41,8 @@ $primary-link-color: $red1;
 $primary-link-color-hover: $red2;
 
 // primary border properties
-$border-color: $light-grey;
-$border-size: 1px;
+$border-color: $aqua1;
+$border-size: 3px;
 $border-type: solid;
 $border-focus: $grey;
 $secondary-border-color: $blue1;
@@ -50,6 +50,7 @@ $secondary-border-color: $blue1;
 // typography
 $body-copy: 'Raleway', sans-serif;
 $heading-copy: 'Roboto Condensed', sans-serif;
+$date-address-copy: 'Roboto Condensed', sans-serif;
 $heading-copy-bold: "Raleway", "Helvetica Neue", helvetica, arial, verdana, sans-serif;
 $button-copy: "Raleway", "Helvetica Neue", helvetica, arial, verdana, sans-serif;
 $base-font-size: 14px;
