@@ -17,7 +17,6 @@
 @import "bootstrap";
 @import "header";
 @import "footer";
-@import "artists";
 @import "events";
 @import "group";
 @import "map";
@@ -31,7 +30,6 @@
 
 h1 {
   color: $off-white;
-  letter-spacing: 4px;
   font-size: $large-header-size;
   text-align: center;
 }

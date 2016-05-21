@@ -13,7 +13,6 @@ ApplicationController.prototype = {
       this.eventsIndexHandlers();
     };
     if ($('#map').length > 0){
-      debugger
       var name = $('#event-name').text();
       var lat = Number($('#coordinates').html().split("|")[0])
       var lon = Number($('#coordinates').html().split("|")[1])
@@ -22,13 +21,11 @@ ApplicationController.prototype = {
         url: "/venues/search",
         method: 'get'
       }).done(function(response){
-
-        debugger
         this.mapController = new MapController(this);
         this.mapController.placeObject = response;
         this.mapController.initMap();
       }.bind(this)).fail(function(){
-        debugger
+
         var lat = Number($('#coordinates').html().split("|")[0])
         var lon = Number($('#coordinates').html().split("|")[1])
         this.mapController = new MapController(this, lat, lon);
