@@ -25,7 +25,6 @@ ApplicationController.prototype = {
         this.mapController.placeObject = response;
         this.mapController.initMap();
       }.bind(this)).fail(function(){
-
         var lat = Number($('#coordinates').html().split("|")[0])
         var lon = Number($('#coordinates').html().split("|")[1])
         this.mapController = new MapController(this, lat, lon);
@@ -110,15 +109,15 @@ ApplicationController.prototype = {
       modalSearch.style.display = "block";
     });
 
-    span.onclick = function() {
-        modal.style.display = "none";
-    };
+    // span.onclick = function() {
+    //     modal.style.display = "none";
+    // };
 
-    window.onclick = function(event) {
-      if (event.target == modal) {
-          modal.style.display = "none";
-      };
-    };
+    // window.onclick = function(event) {
+    //   if (event.target == modal) {
+    //       modal.style.display = "none";
+    //   };
+    // };
   }
 }
 
