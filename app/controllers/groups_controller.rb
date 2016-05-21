@@ -21,6 +21,10 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @event = Event.find_by(id: params[:event_id])
+    if request.xhr?
+      render '/groups/new', layout: false, locals: {event: @event,
+                                                    group: @group}
+      end
   end
 
   def create
@@ -39,8 +43,13 @@ class GroupsController < ApplicationController
   end
 
   def index
+
     event = Event.find(params[:event_id])
     @groups = event.groups
+     if request.xhr?
+      render '/groups/index', layout: false, locals: {event: @event,
+                                                     groups: @groups}
+    end
   end
 
   def show
