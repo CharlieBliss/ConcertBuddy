@@ -1,9 +1,9 @@
+<div id="map" style="width:100%;height:400px" ></div>
+
 <% if @artist %>
   <h5><%= link_to "#{@artist.name} on Spotify", @artist.spotify_url %></h5>
   <%= image_tag(@artist.image_url, class: "event-show") %>
 <% end %>
-
-<div id="map"></div>
 
 <h5> <%= @event.title %> </h5>
 <h5>Date <%= "#{std_format_date(@event.date)} #{std_format_time(@event.time)}"%></h5>
