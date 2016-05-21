@@ -1,5 +1,5 @@
 <% if @artist %>
-  <h5><%= link_to "#{@artist.name} on Spotify", @artist.spotify_url %></h5>
+  <h5><%= link_to "#{@artist.name} on Spotify", @artist.spotify_url, :target => "_blank" %></h5>
   <%= image_tag(@artist.image_url, class: "event-show") %>
 <% end %>
 
@@ -11,14 +11,12 @@
   <%= render partial: "/venues/venue", locals: {venue: @venue} %>
 <% end %>
 
-<h5>More Information: <a href=<%= @event.url %>>At Songkick</a></h5>
-
-
+<h5>More Information: <%=link_to "At Songkick", @event.url, :target => "_blank" %></h5>
 
 <div id="coordinates">
   <%= "#{@event.latitude}|#{@event.longitude}"%>
 </div>
 
-<%= link_to("Start your own group", "/events/#{@event.id}/groups/new") %>
+<%= link_to "Start your own group", "/events/#{@event.id}/groups/new", class: 'start-squad'   %>
 
 <%= link_to "Join a group", "/events/#{@event.id}/groups", class: "join-squad" %>

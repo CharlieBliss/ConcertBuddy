@@ -54,6 +54,7 @@ ApplicationController.prototype = {
 
     // custom search
     $(document).on ('submit', 'form#custom-search', function(){
+      debugger
       event.preventDefault();
       $.ajax({
         data: $(event.target).serialize(),
@@ -68,6 +69,7 @@ ApplicationController.prototype = {
 
     // artist search
     $(document).on ('submit', 'form#artist-search', function(){
+      debugger
       event.preventDefault();
       $.ajax({
         data: $(event.target).serialize(),
@@ -80,7 +82,9 @@ ApplicationController.prototype = {
       }.bind(this));
     }.bind(this));
 
+    // returns all shows that have groups already
     $(document).on ('submit', 'form#has-groups', function(){
+      debugger
       event.preventDefault();
       $.ajax({
         data: $(event.target).serialize(),
@@ -93,15 +97,36 @@ ApplicationController.prototype = {
       }.bind(this));
     }.bind(this));
 
-
+    // populate modal with show details
     $(document).on ('click', '.event a', function(){
       event.preventDefault();
       $.ajax({
         url: $(this).attr('href'),
         method: "get"
       }).done(function(response){
-        debugger
         modal.show();
+        $('#inner-content').html(response)
+      });
+    });
+
+    // render groups index in modal
+    $(document).on ('click', '.join-squad', function(){
+      event.preventDefault();
+      $.ajax({
+        url: $(this).attr('href'),
+        method: "get"
+      }).done(function(response){
+        $('#inner-content').html(response)
+      });
+    });
+
+    // render group new in modal
+    $(document).on ('click', '.start-squad', function(){
+      event.preventDefault();
+      $.ajax({
+        url: $(this).attr('href'),
+        method: "get"
+      }).done(function(response){
         $('#inner-content').html(response)
       });
     });
