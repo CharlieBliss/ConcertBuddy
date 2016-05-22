@@ -72,13 +72,16 @@ ApplicationController.prototype = {
     // break out into own function
   },
 
+  scrollToFirstEvent: function(){
+    $('html,body').animate({scrollTop: ($('#posts').offset().top - 130)},500);
+  },
+
+
   eventsIndexHandlers: function(){
     var modal = $('#showModal');
     var span = $('#spanClose');
-
     // custom search
     $(document).on ('submit', 'form#custom-search', function(){
-      debugger
       event.preventDefault();
       $.ajax({
         data: $(event.target).serialize(),
@@ -88,6 +91,7 @@ ApplicationController.prototype = {
         // modal.style.display = "none";
         $('#posts').empty();
         this.addAndBuildEvents(response);
+        this.scrollToFirstEvent();
       }.bind(this));
     }.bind(this));
 
@@ -102,6 +106,7 @@ ApplicationController.prototype = {
         // modal.style.display = "none";
         $('#posts').empty();
         this.addAndBuildEvents(response);
+        this.scrollToFirstEvent();
       }.bind(this));
     }.bind(this));
 
@@ -116,6 +121,7 @@ ApplicationController.prototype = {
         // modal.style.display = "none";
         $('#posts').empty();
         this.addAndBuildEvents(response);
+        this.scrollToFirstEvent();
       }.bind(this));
     }.bind(this));
 
@@ -168,7 +174,8 @@ ApplicationController.prototype = {
           modal.hide();
       };
     });
-  }
+  },
+
 }
 
 // bubble into event id$('#event#{event.id}')
