@@ -10,9 +10,16 @@ function stringToTime(str){
   if (str === ""){
     return ""
   };
+  var ampm = "AM";
   var hhmmss = str.match(/T(.*)Z/)[1];
-  var hour = hhmmss.split(":")[0];
+
+  var hour = Number(hhmmss.split(":")[0]);
+  debugger
+  if (hour > 12){
+    hour = hour - 12;
+    ampm = "PM";
+  };
   var min = hhmmss.split(":")[1];
-  var sec = hhmmss.split(":")[2];
-  return hour + ":" + min;
+  debugger
+  return hour.toString() + ":" + min + " " + ampm;
 };
