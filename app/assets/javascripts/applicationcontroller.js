@@ -9,6 +9,7 @@ ApplicationController.prototype = {
 
   init: function(){
     if ($('#posts').length > 0){
+      that = this;
       this.songkickController.init();
       this.eventsIndexHandlers();
     };
@@ -34,6 +35,29 @@ ApplicationController.prototype = {
 
   },
 
+  initializeMapInModal: function(){
+    var name = $('#event-name').text();
+    var lat = Number($('#coordinates').html().split("|")[0]);
+    var lon = Number($('#coordinates').html().split("|")[1]);
+    debugger
+    $.ajax({
+      data: {name: name, latitude: lat, longitude: lon },
+      url: "/venues/search",
+      method: 'get'
+    }).done(function(response){
+      debugger
+      this.mapController = new MapController(this);
+      this.mapController.placeObject = response;
+      this.mapController.initMap();
+    }.bind(this)).fail(function(){
+      debugger
+      var lat = Number($('#coordinates').html().split("|")[0])
+      var lon = Number($('#coordinates').html().split("|")[1])
+      this.mapController = new MapController(this, lat, lon);
+      this.mapController.initMap();
+    });
+  },
+
   addAndBuildEvents: function(events){
     this.events = [];
     for (var i = 0; i < events.length; i++ ){
@@ -49,8 +73,8 @@ ApplicationController.prototype = {
   },
 
   eventsIndexHandlers: function(){
-    var modal = $('#showModal')
-    var span = $('#spanClose')
+    var modal = $('#showModal');
+    var span = $('#spanClose');
 
     // custom search
     $(document).on ('submit', 'form#custom-search', function(){
@@ -69,7 +93,6 @@ ApplicationController.prototype = {
 
     // artist search
     $(document).on ('submit', 'form#artist-search', function(){
-      debugger
       event.preventDefault();
       $.ajax({
         data: $(event.target).serialize(),
@@ -84,7 +107,6 @@ ApplicationController.prototype = {
 
     // returns all shows that have groups already
     $(document).on ('submit', 'form#has-groups', function(){
-      debugger
       event.preventDefault();
       $.ajax({
         data: $(event.target).serialize(),
@@ -105,7 +127,8 @@ ApplicationController.prototype = {
         method: "get"
       }).done(function(response){
         modal.show();
-        $('#inner-content').html(response)
+        $('#inner-content').html(response);
+        that.initializeMapInModal();
       });
     });
 
