@@ -16,6 +16,7 @@
 
 #user-show-container .individual-group {
   padding: $padding;
+  margin-bottom: ($margin);
   border: $border-size $border-type $border-color;
   color: $off-white;
   font-size: $base-font-size;
@@ -34,7 +35,22 @@
 
 #user-show-container p {
   color: $off-white;
-  display: inline-block;
+}
+
+#user-show-container a {
+  color: $off-white;
+}
+
+#user-show-container a:hover {
+  color: $orange1;
+}
+
+#user-show-container p a {
+  color: $off-white;
+}
+
+#user-show-container p a:hover {
+  color: $orange1;
 }
 
 #user-show-container img {
