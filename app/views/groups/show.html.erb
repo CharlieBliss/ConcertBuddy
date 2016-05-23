@@ -9,10 +9,6 @@
       </div>
 
       <div class="col-lg-8">
-        <div class="message group">
-          <%= link_to "Message Group", new_message_path(group: @group), class: "btn btn-large btn-success" %>
-        </div>
-      </div>
 
       <h3><%= @group.name %></h3>
 
@@ -20,6 +16,8 @@
         <input type='hidden' name=group_id value=<%=@group.id%>>
         <input type='submit' value='Join Group' class="btn btn-large btn-success">
       </form>
+      <%= link_to "Message Group", new_message_path(group: @group), class: "btn btn-large btn-success" %>
+
 
       <% if @attendees.any? %>
       <div class="group-members">
@@ -36,6 +34,7 @@
         <% end %>
       <% end %>
         </div>
+      </div>
     </div>
   </div>
 </div>
