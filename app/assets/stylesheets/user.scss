@@ -1,8 +1,21 @@
+@import "components/_variables.scss";
+
 #user-show-container {
   text-align: center;
 }
 
+#user-show-container .col-lg-6 {
+  padding: $padding;
+  border-radius: $radius;
+  border: $border-size $border-type $border-color;
+}
+
+#user-show-container .col-lg-6:last-child {
+  margin-top: ($margin * 2);
+}
+
 #user-show-container img {
+  border: $border-size $border-type $border-color;
   width: 50%;
   height: auto;
   border-radius: 100%;
