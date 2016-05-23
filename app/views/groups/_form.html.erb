@@ -1,22 +1,13 @@
 
- <div class="left">
   <%= form_for [@event, @group], html: {class: 'form-horizontal'} do |f| %>
-  <div class="form-group">
+
     <%= f.label :name %>
     <%= f.text_field :name%>
-    </div>
-  </div>
 
-  <div class="form-group">
     <%= f.label :size %>
-    <div class="size">
-      <%= f.number_field :size, class: 'form-control' %>
-    </div>
-  </div>
+    <%= f.number_field :size, class: 'form-control' %>
 
-  <div class="form-group">
-      <%= f.submit class:"btn btn-default"%>
-  </div>
+    <%= f.submit class:"btn btn-default"%>
 
-<% end %>
-</div>
+  <% end %>
+

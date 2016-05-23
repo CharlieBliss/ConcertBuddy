@@ -39,7 +39,6 @@ include HTTParty
     HTTParty.get(base_uri + "/details/json", :query => {placeid: place_id, key: ENV["GOOGLE_PLACES_KEY"]})
   end
 
-
   def valid_response?
     !current_response.empty? || current_response.code != 200
   end

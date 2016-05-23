@@ -4,6 +4,11 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @artist = @event.artists.first
     @groups = @event.groups
+    if request.xhr?
+      render '/events/show', layout: false, locals: {event: @event,
+                                              artist: @artist,
+                                              groups: @groups}
+    end
   end
 
   def create
