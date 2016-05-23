@@ -4,13 +4,13 @@
   text-align: center;
 }
 
-#user-show-container .col-lg-8 {
+#user-show-container .col-centered {
   padding: $padding;
   border-radius: $radius;
   border: $border-size $border-type $border-color;
 }
 
-#user-show-container .col-lg-8:last-child {
+#user-show-container .col-centered:last-child {
   margin-top: ($margin * 2);
 }
 
@@ -35,7 +35,7 @@
 
 #user-show-container img {
   border: $border-size $border-type $border-color;
-  width: 40%;
+  width: 95%;
   height: auto;
   border-radius: 100%;
 }
