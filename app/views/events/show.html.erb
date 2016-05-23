@@ -2,7 +2,6 @@
 
 <% if @artist %>
   <h5><%= link_to "#{@artist.name} on Spotify", @artist.spotify_url, :target => "_blank" %></h5>
-  <%= image_tag(@artist.image_url, class: "event-show") %>
 <% end %>
 
 
@@ -23,4 +22,6 @@
 
 <%= link_to "Start your own group", "/events/#{@event.id}/groups/new", class: 'start-squad'   %>
 
-<%= link_to "Join a group", "/events/#{@event.id}/groups", class: "join-squad" %>
+<% if @event.groups.length > 0 %>
+  <%= link_to "Join a group", "/events/#{@event.id}/groups", class: "join-squad" %>
+<% end %>
