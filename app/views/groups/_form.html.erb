@@ -2,10 +2,10 @@
   <%= form_for [@event, @group], html: {class: 'form-horizontal'} do |f| %>
 
     <%= f.label :name %>
-    <%= f.text_field :name%>
+    <%= f.text_field :name, class: "form-control" %>
 
     <%= f.label :size %>
-    <%= f.number_field :size, class: 'form-control' %>
+    <%= f.number_field :size, class: "form-control" %>
 
     <%= f.submit class:"btn btn-success"%>
 

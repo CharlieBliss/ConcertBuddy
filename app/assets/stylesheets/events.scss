@@ -33,11 +33,6 @@ body {
   margin-top: ($margin * 1.5);
 }
 
-// #posts .event img {
-//   max-width: 70%;
-//   height: auto;
-// }
-
 #posts h3 a {
   font-size: $medium-header-size;
   font-family: $heading-copy;
@@ -52,18 +47,6 @@ body {
 #posts img {
   text-align: center;
 }
-
-// #posts .event {
-//   border: $border-size $border-type $border-color;
-// }
-//
-// #has-groups-form {
-//   margin-left: ($margin * 1);
-// }
-
-
-
-
 
 .modal {
     display: none;
