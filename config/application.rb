@@ -12,12 +12,13 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 # preload tokens in application.yml to local ENV
+# comment out in production
 
-config = YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
-config.merge! config.fetch(Rails.env, {})
-config.each do |key, value|
-  ENV[key] = value.to_s unless value.kind_of? Hash
-end
+#config = YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
+#config.merge! config.fetch(Rails.env, {})
+#config.each do |key, value|
+#  ENV[key] = value.to_s unless value.kind_of? Hash
+#end
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
