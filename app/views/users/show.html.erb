@@ -9,12 +9,12 @@
 
     <div class="row">
       <div class="col-lg-6 col-centered">
-        <h3>My Groups<h3>
+        <h3>My Own Groups</h3>
 
         <% @groups.each do |group| %>
-        <%= group.name %> is going to <%= group.event.title %>
+        <%= link_to group.name, event_group_path(group.event, group) %> is going to <%= link_to group.event.title, event_path %></p>
           <% if group.owner == @user %>
-            (Owner)
+            <p>(Owner)</p>
           <% end %>
         <% end %>
       </div>
