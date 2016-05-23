@@ -4,6 +4,7 @@
       <div class="col-lg-8 col-centered">
         <%= image_tag(@user.image, class: "profile-pic") %>
         <h3><%= "#{@user.first_name} #{@user.last_name}"%></h3>
+        <p>Member Since:<%= @user.created_at %></p>
       </div>
     </div>
 

@@ -24,7 +24,13 @@
 }
 
 #user-show-container h3 {
-  display: inline;
+  padding-left: ($padding - 0.5);
+  display: inline-block;
+}
+
+#user-show-container p {
+  color: $off-white;
+  display: inline-block;
 }
 
 #user-show-container img {
@@ -33,30 +39,3 @@
   height: auto;
   border-radius: 100%;
 }
-
-
-// .profile-pic {
-//   height: 150px;
-//   width: auto;
-//   border-radius: 100%;
-// }
-//
-// .user-show {
-//     float: left;
-//     position: relative;
-//     height: 200px;
-//     width: 100%;
-//     margin: 5px;
-//     border: 1px solid #bbb;
-//     border-radius: 4px;
-// }
-//
-// .user-show img {
-//   float: left;
-//   margin-left: 20px;
-//   margin-top: 20px;
-// }
-//
-// .user-show h3, p {
-//   text-align: center;
-// }
