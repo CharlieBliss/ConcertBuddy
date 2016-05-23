@@ -8,10 +8,6 @@ body {
   background: $navy2;
 }
 
-#login-form {
-  margin-bottom: ($margin * 3);
-}
-
 #login-form h1 {
   font-family: $heading-copy;
   font-weight: 400;
@@ -34,11 +30,15 @@ body {
 }
 
 #posts p {
-  font-family: $date-address-copy;
   color: $blue1;
 }
 
 #posts img {
+  text-align: center;
+  height: 140px;
+}
+
+#posts .content {
   text-align: center;
 }
 

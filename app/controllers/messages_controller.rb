@@ -13,7 +13,6 @@ class MessagesController < ApplicationController
 
     if message.save
       group = Group.find(message.group_id)
-      binding.pry
       owner = User.find(group.owner_id)
 
       group.users.each do |user|

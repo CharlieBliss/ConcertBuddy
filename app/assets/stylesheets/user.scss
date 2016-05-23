@@ -1,25 +1,60 @@
-.profile-pic {
-  height: 150px;
-  width: auto;
-  border-radius: 100%;
-}
+@import "components/_variables.scss";
 
-.user-show {
-    float: left;
-    position: relative;
-    height: 200px;
-    width: 100%;
-    margin: 5px;
-    border: 1px solid #bbb;
-    border-radius: 4px;
-}
-
-.user-show img {
-  float: left;
-  margin-left: 20px;
-  margin-top: 20px;
-}
-
-.user-show h3, p {
+#user-show-container {
   text-align: center;
+}
+
+#user-show-container #user-container {
+  padding: $padding;
+  border-radius: $radius;
+  border: $border-size $border-type $border-color;
+}
+
+#user-show-container .col-centered:last-child {
+  margin-top: ($margin * 2);
+}
+
+#user-show-container .individual-group {
+  padding: $padding;
+  margin-bottom: ($margin);
+  border: $border-size $border-type $border-color;
+  color: $off-white;
+  font-size: $base-font-size;
+  border-radius: $radius;
+}
+
+#user-show-container h3 {
+  padding-left: ($padding - 0.5);
+  display: inline-block;
+}
+
+#my-own-groups-container h3 {
+  margin-bottom: ($margin - 0.5);
+}
+
+#user-show-container p {
+  color: $off-white;
+}
+
+#user-show-container a {
+  color: $off-white;
+}
+
+#user-show-container a:hover {
+  color: $orange1;
+}
+
+#user-show-container p a {
+  color: $off-white;
+}
+
+#user-show-container p a:hover {
+  color: $orange1;
+}
+
+#user-show-container img {
+  border: $border-size $border-type $border-color;
+  max-width: 90%;
+  height: auto;
+  border-radius: 100%;
 }

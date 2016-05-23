@@ -51,8 +51,14 @@ h3 {
   text-align: center;
 }
 
-img {
-  height: 140px;
+h4 {
+  font-family: $heading-copy;
+  color: $off-white;
+  font-size: $medium-header-size;
+}
+
+p {
+  font-family: $date-address-copy;
 }
 
 label {
@@ -64,7 +70,6 @@ label {
   font-weight: 400;
   color: $off-white;
 }
-
 
 .centered {
   text-align: center;
