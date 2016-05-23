@@ -12,13 +12,6 @@
 
       <h3><%= @group.name %></h3>
 
-      <form class='join-group' action='/events/<%= @group.event_id %>/groups/join'>
-        <input type='hidden' name=group_id value=<%=@group.id%>>
-        <input type='submit' value='Join Group' class="btn btn-large btn-success">
-      </form>
-      <%= link_to "Message Group", new_message_path(group: @group), class: "btn btn-large btn-success" %>
-
-
       <% if @attendees.any? %>
       <div class="group-members">
         <h3>Attending</h3>
@@ -29,10 +22,19 @@
 
       <% if @group.messages %>
         <% @group.messages.each do |message| %>
-          <h6><%= message.user.first_name %></h6>
-          <p><%= message.content %></p>
+          <div class="individual-message">
+            <h4><%= message.user.first_name %></h4>
+            <p><%= message.content %></p>
+          </div>
         <% end %>
       <% end %>
+
+      <form class='join-group' action='/events/<%= @group.event_id %>/groups/join'>
+        <input type='hidden' name=group_id value=<%=@group.id%>>
+        <input type='submit' value='Join Group' class="btn btn-large btn-success">
+      </form>
+      <%= link_to "Message Group", new_message_path(group: @group), class: "btn btn-large btn-success" %>
+
         </div>
       </div>
     </div>
