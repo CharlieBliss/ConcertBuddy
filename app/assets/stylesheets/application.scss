@@ -33,6 +33,11 @@
   margin: 0 auto;
 }
 
+.form-control {
+  border-radius: $form-border-radius;
+  margin-bottom: ($margin);
+}
+
 h1 {
   color: $off-white;
   font-size: $large-header-size;
