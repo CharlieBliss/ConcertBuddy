@@ -1,36 +1,38 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8">
-      <div class="group-owner">
-        <h3>Group organizer</h3>
-        <%= render partial: "/groups/group_owner", locals: {user: @group.owner }  %>
+<div id="group-show-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="group-owner">
+          <h3>Organizer</h3>
+          <%= render partial: "/groups/group_owner", locals: {user: @group.owner }  %>
+        </div>
       </div>
 
-    <div class="col-lg-4">
-      <div class="message group">
-        <%= link_to "message group", new_message_path(group: @group) %>
+      <div class="col-lg-8">
+        <div class="message group">
+          <%= link_to "message group", new_message_path(group: @group) %>
+        </div>
       </div>
-    </div>
 
-    <h2><%= @group.name %></h2>
+      <h2><%= @group.name %></h2>
 
-    <form class='join-group' action='/events/<%= @group.event_id %>/groups/join'><input type='hidden' name=group_id value=<%=@group.id%>><input type='submit' value='Join Group'></form>
+      <form class='join-group' action='/events/<%= @group.event_id %>/groups/join'><input type='hidden' name=group_id value=<%=@group.id%>><input type='submit' value='Join Group'></form>
 
-    <% if @attendees.any? %>
-    <div class="group-members">
-      <h3>Attending</h3>
-      <% @attendees.each do |attendee| %>
-        <%= render partial: "/groups/group_member", locals: {user: attendee} %>
+      <% if @attendees.any? %>
+      <div class="group-members">
+        <h3>Attending</h3>
+        <% @attendees.each do |attendee| %>
+          <%= render partial: "/groups/group_member", locals: {user: attendee} %>
+        <% end %>
       <% end %>
-    <% end %>
 
-    <% if @group.messages %>
-      <% @group.messages.each do |message| %>
-        <h6><%= message.user.first_name %></h6>
-        <p><%= message.content %></p>
+      <% if @group.messages %>
+        <% @group.messages.each do |message| %>
+          <h6><%= message.user.first_name %></h6>
+          <p><%= message.content %></p>
+        <% end %>
       <% end %>
-    <% end %>
+        </div>
     </div>
   </div>
-</div>
 </div>
