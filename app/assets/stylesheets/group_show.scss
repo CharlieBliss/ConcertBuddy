@@ -3,6 +3,7 @@
 }
 
 #group-show-container .individual-message {
+  border: $border-size $border-type $border-color;
   border-radius: $radius;
   padding: $padding;
   background-color: $blue2;

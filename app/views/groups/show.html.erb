@@ -10,6 +10,8 @@
 
       <div class="col-lg-8">
 
+      <hr>
+
       <h3><%= @group.name %></h3>
 
       <hr>
@@ -35,11 +37,15 @@
         <% end %>
       <% end %>
 
-      <form class='join-group' action='/events/<%= @group.event_id %>/groups/join'>
-        <input type='hidden' name=group_id value=<%=@group.id%>>
-        <input type='submit' value='Join Group' class="btn btn-large btn-success">
-      </form>
-      <%= link_to "Message Group", new_message_path(group: @group), class: "btn btn-large btn-success" %>
+      <div class="centered">
+        <form class='join-group' action='/events/<%= @group.event_id %>/groups/join'>
+          <input type='hidden' name=group_id value=<%=@group.id%>>
+          <button type='submit' class='btn btn-large btn-success'>
+            Join Group
+          </button>
+        </form>
+        <%= link_to "Message Group", new_message_path(group: @group), class: "btn btn-large btn-success" %>
+      </div>
 
         </div>
       </div>
