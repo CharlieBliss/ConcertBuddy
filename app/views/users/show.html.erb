@@ -1,13 +1,19 @@
-<%= "#{@user.first_name} #{@user.last_name}"%>
-<%= image_tag(@user.image, class: "profile-pic") %>
+<div id="user-show-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-centered">
+        <%= image_tag(@user.image, class: "profile-pic") %>
+        <h3><%= "#{@user.first_name} #{@user.last_name}"%></h3>
 
-<h3>My Groups<h3>
+        <h3>My Groups<h3>
 
-<% @groups.each do |group| %>
-<%= group.name %>  is going to <%= group.event.title %>
-  <% if group.owner == @user %>
-    (Owner)
-  <% end %>
-<% end %>
-
-
+        <% @groups.each do |group| %>
+        <%= group.name %> is going to <%= group.event.title %>
+          <% if group.owner == @user %>
+            (Owner)
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
