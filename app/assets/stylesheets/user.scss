@@ -23,6 +23,10 @@
   background-color: $aqua1;
 }
 
+#user-show-container h3 {
+  display: inline;
+}
+
 #user-show-container img {
   border: $border-size $border-type $border-color;
   width: 50%;
