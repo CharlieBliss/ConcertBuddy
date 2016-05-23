@@ -14,6 +14,12 @@
   margin-top: ($margin * 2);
 }
 
+#user-show-container h3 {
+  font-family: $heading-copy-bold;
+  letter-spacing: 4px;
+  font-weight: 900;
+}
+
 #user-show-container img {
   border: $border-size $border-type $border-color;
   width: 50%;
