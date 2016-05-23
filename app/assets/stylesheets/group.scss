@@ -6,7 +6,7 @@
   margin-bottom: ($margin - 0.5);
 }
 
-#new-group-container input {
-  border-radius: $radius;
+#new-group-container .form-control {
+  border-radius: $form-border-radius;
   margin-bottom: ($margin);
 }
