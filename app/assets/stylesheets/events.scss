@@ -18,41 +18,17 @@ body {
   margin-bottom: ($margin - 0.75);
 }
 
-#login-form label {
-  text-align: center;
-  width: 100%;
-  margin-bottom: ($margin - 0.6);
-  font-family: $heading-copy-bold;
-  font-size: $medium-header-size;
-  font-weight: 400;
-  color: $off-white;
-}
-
 #login-form input {
   margin: 0 auto;
   width: 75%;
-}
-
-#login-form .btn {
-  margin-top: ($margin - 0.5);
-  border-radius: $radius;
-  width: 25%;
 }
 
 #has-groups-form .btn {
   margin-top: ($margin * 1.5);
 }
 
-#posts .event img {
-  max-width: 70%;
-  height: auto;
-}
-
-#posts h3 {
-  text-align: center;
-}
-
 #posts h3 a {
+  font-size: $medium-header-size;
   font-family: $heading-copy;
   color: $orange1;
 }
@@ -65,14 +41,6 @@ body {
 #posts img {
   text-align: center;
 }
-//
-// #has-groups-form {
-//   margin-left: ($margin * 1);
-// }
-
-
-
-
 
 .modal {
     display: none;

@@ -1,10 +1,17 @@
-<h3>Create a group for your event </h3>
+<div id="new-group-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-centered">
+        <h3>Create a Group!</h3>
 
-<div>
-  <% if flash[:notice] %>
-    <%= flash[:notice] %>
-  <% end %>
+        <div>
+          <% if flash[:notice] %>
+            <%= flash[:notice] %>
+          <% end %>
+        </div>
+
+        <%= render 'form', locals: {group: @group, event: @event} %>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= render 'form', locals: {group: @group, event: @event} %>
-

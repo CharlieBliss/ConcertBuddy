@@ -25,7 +25,17 @@
 @import "venues";
 
 .container {
-  margin-top: 60px;
+  margin-top: ($margin * 6);
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.form-control {
+  border-radius: $form-border-radius;
+  margin-bottom: ($margin);
 }
 
 h1 {
@@ -34,12 +44,36 @@ h1 {
   text-align: center;
 }
 
+h3 {
+  font-family: $heading-copy;
+  color: $off-white;
+  font-size: $large-header-size;
+  text-align: center;
+}
+
+img {
+  height: 140px;
+}
+
+label {
+  text-align: center;
+  width: 100%;
+  margin-bottom: ($margin - 0.6);
+  font-family: $heading-copy-bold;
+  font-size: $medium-header-size;
+  font-weight: 400;
+  color: $off-white;
+}
+
+
 .centered {
   text-align: center;
   margin-bottom: ($margin * 2);
 }
 
 .btn {
+  margin-top: ($margin - 0.5);
+  border-radius: $radius;
   font-family: $button-copy;
   font-weight: 100;
   letter-spacing: 2px;

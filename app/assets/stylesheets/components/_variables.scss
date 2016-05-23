@@ -41,7 +41,7 @@ $primary-link-color: $red1;
 $primary-link-color-hover: $red2;
 
 // primary border properties
-$border-color: $aqua1;
+$border-color: $light-grey;
 $border-size: 3px;
 $border-type: solid;
 $border-focus: $grey;
@@ -64,7 +64,7 @@ $margin: 1em;
 $padding: 1em;
 
 // MIXINS
-
+$form-border-radius: 20px;
 $radius: 5px;
 
 // round corners or Border radius

@@ -60,4 +60,3 @@ MapController.prototype = {
     return htmlArray.join("");
   }
 };
-
