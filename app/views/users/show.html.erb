@@ -12,11 +12,16 @@
         <h3>My Own Groups</h3>
 
         <% @groups.each do |group| %>
-        <%= link_to group.name, event_group_path(group.event, group) %> is going to <%= link_to group.event.title, event_path %></p>
+        <div class="individual-group">
+          <p><%= link_to group.name, event_group_path(group.event, group) %> is going to
+          <%= link_to group.event.title, event_path %>
           <% if group.owner == @user %>
-            <p>(Owner)</p>
+            (Owner)</p>
+          <% else %>
+          </p>
           <% end %>
         <% end %>
+        </div>
       </div>
     </div>
   </div>
