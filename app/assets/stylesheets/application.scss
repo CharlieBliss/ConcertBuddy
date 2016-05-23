@@ -25,10 +25,17 @@
 @import "venues";
 
 .container {
-  margin-top: 60px;
+  margin-top: ($margin * 6);
 }
 
 h1 {
+  color: $off-white;
+  font-size: $large-header-size;
+  text-align: center;
+}
+
+h3 {
+  font-family: $heading-copy;
   color: $off-white;
   font-size: $large-header-size;
   text-align: center;
