@@ -16,7 +16,10 @@
 
       <h3><%= @group.name %></h3>
 
-      <form class='join-group' action='/events/<%= @group.event_id %>/groups/join'><input type='hidden' name=group_id value=<%=@group.id%>><input type='submit' value='Join Group'></form>
+      <form class='join-group' action='/events/<%= @group.event_id %>/groups/join'>
+        <input type='hidden' name=group_id value=<%=@group.id%>>
+        <input type='submit' value='Join Group' class="btn btn-large btn-success">
+      </form>
 
       <% if @attendees.any? %>
       <div class="group-members">
