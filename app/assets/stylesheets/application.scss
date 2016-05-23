@@ -67,6 +67,8 @@ label {
 }
 
 .btn {
+  margin-top: ($margin - 0.5);
+  border-radius: $radius;
   font-family: $button-copy;
   font-weight: 100;
   letter-spacing: 2px;
