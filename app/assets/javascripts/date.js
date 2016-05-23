@@ -14,12 +14,10 @@ function stringToTime(str){
   var hhmmss = str.match(/T(.*)Z/)[1];
 
   var hour = Number(hhmmss.split(":")[0]);
-  debugger
   if (hour > 12){
     hour = hour - 12;
     ampm = "PM";
   };
   var min = hhmmss.split(":")[1];
-  debugger
   return hour.toString() + ":" + min + " " + ampm;
 };

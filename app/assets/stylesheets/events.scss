@@ -66,6 +66,10 @@ body {
 #posts img {
   text-align: center;
 }
+
+#posts .event {
+  border: $border-size $border-type $border-color;
+}
 //
 // #has-groups-form {
 //   margin-left: ($margin * 1);
