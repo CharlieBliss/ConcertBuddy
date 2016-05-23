@@ -14,6 +14,14 @@
      <%= render partial: "layouts/header" %>
      <p class="notice"><%= notice %></p>
      <p class="alert"><%= alert %></p>
+
+
+     <% if flash %>
+      <% flash.each do |_, flash| %>
+        <div class="alert alert-warning"><%= flash %></div>
+      <% end %>
+     <% end %>
+
      <%= yield %>
      <%= render partial: "layouts/footer" %>
   </body>
