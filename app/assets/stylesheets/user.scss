@@ -4,7 +4,7 @@
   text-align: center;
 }
 
-#user-show-container .col-centered {
+#user-show-container #user-container {
   padding: $padding;
   border-radius: $radius;
   border: $border-size $border-type $border-color;
@@ -20,12 +20,16 @@
   color: $off-white;
   font-size: $base-font-size;
   border-radius: $radius;
-  background-color: $aqua1;
+  background-color: $blue2;
 }
 
 #user-show-container h3 {
   padding-left: ($padding - 0.5);
   display: inline-block;
+}
+
+#my-own-groups-container h3 {
+  margin-bottom: ($margin - 0.5);
 }
 
 #user-show-container p {
@@ -35,7 +39,7 @@
 
 #user-show-container img {
   border: $border-size $border-type $border-color;
-  width: 95%;
+  max-width: 90%;
   height: auto;
   border-radius: 100%;
 }

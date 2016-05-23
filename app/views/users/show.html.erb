@@ -1,21 +1,24 @@
 <div id="user-show-container">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 col-centered">
+      <div class="col-lg-8 col-centered" id="user-container">
         <div class="row">
           <div class="col-lg-4">
             <%= image_tag(@user.image, class: "profile-pic") %>
           </div>
           <div class="col-lg-8">
             <h3><%= "#{@user.first_name} #{@user.last_name}"%></h3>
-            <p>Member Since: <%= @user.created_at %></p>
+            <h4>Member Since:</h4>
+            <p><%= @user.created_at %></p>
+            <h4>Description:</h4>
+            <p><%=@user.description %></p>
           </div>
       </div>
     </div>
   </div>
 
     <div class="row">
-      <div class="col-lg-8 col-centered">
+      <div class="col-lg-8 col-centered" id="my-own-groups-container">
         <h3>My Own Groups</h3>
 
         <% @groups.each do |group| %>
