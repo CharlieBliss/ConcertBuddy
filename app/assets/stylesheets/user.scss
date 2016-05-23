@@ -41,15 +41,12 @@
 }
 
 #user-show-container a:hover {
-  color: $orange1;
+  text-decoration: none;
+  color: $grey;
 }
 
 #user-show-container p a {
   color: $off-white;
-}
-
-#user-show-container p a:hover {
-  color: $orange1;
 }
 
 #user-show-container img {
