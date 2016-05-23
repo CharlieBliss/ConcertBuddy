@@ -12,6 +12,9 @@
 
       <h3><%= @group.name %></h3>
 
+      <hr>
+
+      <h3>Attendees</h3>
       <% if @attendees.any? %>
       <div class="group-members">
         <h3>Attending</h3>
@@ -20,6 +23,9 @@
         <% end %>
       <% end %>
 
+      <hr>
+
+      <h3>Messages</h3>
       <% if @group.messages %>
         <% @group.messages.each do |message| %>
           <div class="individual-message">

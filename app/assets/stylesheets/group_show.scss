@@ -3,5 +3,11 @@
 }
 
 #group-show-container .individual-message {
+  border-radius: $radius;
+  padding: $padding;
   background-color: $blue2;
+}
+
+#group-show-container h3 {
+  margin-bottom: ($margin - 0.5);
 }
