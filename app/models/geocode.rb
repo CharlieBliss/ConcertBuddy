@@ -16,7 +16,7 @@ class Geocode
   end
 
   def valid_response?
-    !current_response.empty? || current_response.code != 200
+    !current_response["results"].empty?
   end
 
   def get_lat_lon_hash

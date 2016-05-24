@@ -16,22 +16,19 @@ class SongkickController < ApplicationController
 
       if geocode.valid_response?
         latlng = geocode.get_lat_lon_hash
-        lat = latlng["lat"]
-        lng = latlng["lng"]
-        events.add_location(lat,lng)
+        events.add_location(latlng["lat"],latlng["lng"])
+        events.add_dates(params[:date][:min_date],params[:date][:max_date])
+        render json: events.location_return
       else
-        flash[:notice] = "address entered was not valid, try to be more specific"
-        redirect_to root_path
+        render json: "res: no results"
       end
 
     else
-      events.add_location
+        events.add_location(latlng["lat"],latlng["lng"])
+        events.add_dates(params[:date][:min_date],params[:date][:max_date])
+        render json: events.location_return
     end
 
-    start_date = params[:date][:min_date]
-    end_date = params[:date][:max_date]
-    events.add_dates(start_date,end_date)
-    render json: events.location_return
   end
 
   def artist_search
