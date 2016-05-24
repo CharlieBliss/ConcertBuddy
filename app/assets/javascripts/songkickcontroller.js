@@ -45,6 +45,12 @@ SongkickController.prototype = {
     return div;
   },
 
+  createCarouselImage: function(show) {
+    var div = "";
+    div += "<a href='/events/" + show.id + "'><div class='centered' id='event'" + show.id + "><img src=" + "http://www.exaclair.com/images/placeholders/team-placeholder.jpg" + " class='event-image'></div></a>";
+    return div;
+  }
+
   hasTime: function(show){
     if (show.time){
       return show.time;
