@@ -9,23 +9,47 @@
       </div>
 
       <div class="col-lg-8">
+        <div class="centered">
+          <form class='join-group' action='/events/<%= @group.event_id %>/groups/join'>
+            <input type='hidden' name=group_id value=<%=@group.id%>>
+            <button type='submit' class='btn btn-large btn-success'>
+              Join Group
+            </button>
+          </form>
+        </div>
 
       <hr>
 
       <h3><%= @group.name %></h3>
+      <h4><%= @event.title %></h4>
+      <h4>Artist: <%= @event.artist_name %></h4>
+      <h4>Venue: <%= @event.venue %></h4>
 
       <hr>
 
       <h3>Attendees</h3>
       <% if @attendees.any? %>
-      <div class="group-members">
-        <h3>Attending</h3>
-        <% @attendees.each do |attendee| %>
-          <%= render partial: "/groups/group_member", locals: {user: attendee} %>
-        <% end %>
+        <div id="group-members">
+          <% @attendees.each do |attendee| %>
+            <%= render partial: "/groups/group_member", locals: {user: attendee} %>
+          <% end %>
+        </div>
       <% end %>
 
+
       <hr>
+
+      <%= link_to "Message Group", new_message_path(group: @group), class: "btn btn-large btn-success", id: "message-group" %>
+
+      <%= form_for @message, html: {id: "show-new-message"} do |f| %>
+
+        <%= f.text_area :content, placeholder: "message" %>
+
+        <%= f.hidden_field :group_id, :value => @group.id %>
+
+        <%= f.submit %>
+
+      <% end %>
 
       <h3>Messages</h3>
       <% if @group.messages %>
@@ -36,16 +60,6 @@
           </div>
         <% end %>
       <% end %>
-
-      <div class="centered">
-        <form class='join-group' action='/events/<%= @group.event_id %>/groups/join'>
-          <input type='hidden' name=group_id value=<%=@group.id%>>
-          <button type='submit' class='btn btn-large btn-success'>
-            Join Group
-          </button>
-        </form>
-        <%= link_to "Message Group", new_message_path(group: @group), class: "btn btn-large btn-success" %>
-      </div>
 
         </div>
       </div>

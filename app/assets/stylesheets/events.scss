@@ -82,3 +82,25 @@ body {
 }
 
 #coordinates { display: none;}
+
+.modal-group-container img {
+  height: 200px;
+  width: auto;
+}
+
+#show-new-message {
+  display: none;
+}
+
+textarea {
+  width: 100%;
+  height: 80px;
+}
+
+#new-group-container h3, form{
+  color: black
+}
+
+#new-group-container label {
+  color: black
+}

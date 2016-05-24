@@ -33,6 +33,11 @@ ApplicationController.prototype = {
       });
     };
 
+    $('#message-group').on ('click', function(){
+      event.preventDefault();
+      $('#show-new-message').show();
+    });
+
   },
 
   initializeMapInModal: function(){
@@ -172,7 +177,6 @@ ApplicationController.prototype = {
       };
     });
   },
-
 }
 
 // bubble into event id$('#event#{event.id}')

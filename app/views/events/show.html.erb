@@ -4,24 +4,20 @@
   <h5><%= link_to "#{@artist.name} on Spotify", @artist.spotify_url, :target => "_blank" %></h5>
 <% end %>
 
+<%= link_to "Start your own group", "/events/#{@event.id}/groups/new", class: 'start-squad'   %>
+
+<% if @event.groups.length > 0 %>
+  <%= link_to "Join a group", "/events/#{@event.id}/groups", class: "join-squad" %>
+<% end %>
 
 
 <h5> <%= @event.title %> </h5>
 <h5>Date <%= "#{std_format_date(@event.date)} #{std_format_time(@event.time)}"%></h5>
 <h5>Location: <span id='event-name'><%= @event.venue.to_s %></span></h5>
-
-<% if @venue %>
-  <%= render partial: "/venues/venue", locals: {venue: @venue} %>
-<% end %>
-
 <h5>More Information: <%=link_to "At Songkick", @event.url, :target => "_blank" %></h5>
 
 <div id="coordinates">
   <%= "#{@event.latitude}|#{@event.longitude}"%>
 </div>
 
-<%= link_to "Start your own group", "/events/#{@event.id}/groups/new", class: 'start-squad'   %>
 
-<% if @event.groups.length > 0 %>
-  <%= link_to "Join a group", "/events/#{@event.id}/groups", class: "join-squad" %>
-<% end %>
