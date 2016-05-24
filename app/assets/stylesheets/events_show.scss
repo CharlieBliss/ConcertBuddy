@@ -2,6 +2,10 @@
   text-align: center;
 }
 
-#events-show-container p {
-  color: $off-white;
+#events-show-container h4 {
+  font-size:($medium-header-size * 1.5);
+}
+
+#events-show-container h5 {
+  margin-bottom: ($margin);
 }
