@@ -1,0 +1,18 @@
+#group-show-container h3 {
+  margin-bottom: ($margin - 0.5);
+}
+
+#group-show-container p {
+  color: $off-white;
+}
+
+#group-show-container img {
+  margin-left: ($margin);
+}
+
+#group-show-container .individual-message {
+  border: $border-size $border-type $border-color;
+  border-radius: $radius;
+  padding: $padding;
+  background-color: $blue2;
+}

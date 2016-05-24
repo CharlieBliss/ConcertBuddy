@@ -19,6 +19,7 @@
 @import "footer";
 @import "events";
 @import "group";
+@import "group_show";
 @import "map";
 @import "songkick";
 @import "user";
@@ -83,4 +84,11 @@ label {
   font-family: $button-copy;
   font-weight: 100;
   letter-spacing: 2px;
+}
+
+.profile-pic {
+  border: $border-size $border-type $border-color;
+  max-width: 90%;
+  height: auto;
+  border-radius: 100%;
 }

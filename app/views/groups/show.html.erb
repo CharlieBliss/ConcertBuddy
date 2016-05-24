@@ -1,29 +1,54 @@
+<div id="group-show-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="group-owner">
+          <h3>Organizer</h3>
+          <%= render partial: "/groups/group_owner", locals: {user: @group.owner }  %>
+        </div>
+      </div>
 
-<h2><%= @group.name %></h2>
+      <div class="col-lg-8">
 
-<form class='join-group' action='/events/<%= @group.event_id %>/groups/join'><input type='hidden' name=group_id value=<%=@group.id%>><input type='submit' value='Join Group'></form>
+      <hr>
 
-<div class="group-owner">
-  <h3>Group organizer</h3>
-  <%= render partial: "/groups/group_owner", locals: {user: @group.owner }  %>
+      <h3><%= @group.name %></h3>
+
+      <hr>
+
+      <h3>Attendees</h3>
+      <% if @attendees.any? %>
+      <div class="group-members">
+        <h3>Attending</h3>
+        <% @attendees.each do |attendee| %>
+          <%= render partial: "/groups/group_member", locals: {user: attendee} %>
+        <% end %>
+      <% end %>
+
+      <hr>
+
+      <h3>Messages</h3>
+      <% if @group.messages %>
+        <% @group.messages.each do |message| %>
+          <div class="individual-message">
+            <h4><%= message.user.first_name %></h4>
+            <p><%= message.content %></p>
+          </div>
+        <% end %>
+      <% end %>
+
+      <div class="centered">
+        <form class='join-group' action='/events/<%= @group.event_id %>/groups/join'>
+          <input type='hidden' name=group_id value=<%=@group.id%>>
+          <button type='submit' class='btn btn-large btn-success'>
+            Join Group
+          </button>
+        </form>
+        <%= link_to "Message Group", new_message_path(group: @group), class: "btn btn-large btn-success" %>
+      </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div class="message group">
-  <%= link_to "message group", new_message_path(group: @group) %>
-</div>
-
-<% if @attendees.any? %>
-<div class="group-members">
-  <h3>Attending</h3>
-  <% @attendees.each do |attendee| %>
-    <%= render partial: "/groups/group_member", locals: {user: attendee} %>
-  <% end %>
-<% end %>
-
-<% if @group.messages %>
-  <% @group.messages.each do |message| %>
-    <h6><%= message.user.first_name %></h6>
-    <p><%= message.content %></p>
-  <% end %>
-<% end %>
-
