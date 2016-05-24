@@ -19,3 +19,8 @@
 #events-show-container a {
   color: $off-white;
 }
+
+#events-show-container a:hover {
+  text-decoration: none;
+  color: $aqua1;
+}
