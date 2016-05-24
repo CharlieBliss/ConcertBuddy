@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'notifications@example.com'
+  default from: 'concertbuddyapp@gmail.com'
 
   def new_group_email(user,group)
     @user = user

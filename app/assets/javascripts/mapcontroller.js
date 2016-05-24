@@ -46,8 +46,11 @@ MapController.prototype = {
   },
 
   standardContentWindow: function(){
-    var htmlString = this.latitude.toString() + "," + this.longitude.toString();
-    return htmlString;
+    var googleMapsNavigateBase = "http://maps.google.com/maps?z=12&t=m&q="
+    var locationQuery = "loc:" + this.latitude.toString() + "+" + this.longitude.toString();
+    var fullURL= googleMapsNavigateBase + locationQuery;
+    var showInGoogle = "<h5><a href=" + fullURL + ">Show in google</a></h5>"
+    return showInGoogle;
   },
 
   fullContentWindow: function(){

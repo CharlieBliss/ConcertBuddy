@@ -78,6 +78,13 @@ ApplicationController.prototype = {
     $('html,body').animate({scrollTop: ($('#posts').offset().top - 130)},500);
   },
 
+  toggleLoadWheel: function(){
+    if ($('#load-wheel').is(":visible")){
+      $('#load-wheel').hide();
+    } else {
+      $('#load-wheel').show();
+    };
+  },
 
   eventsIndexHandlers: function(){
     var modal = $('#showModal');
@@ -85,21 +92,25 @@ ApplicationController.prototype = {
     // custom search
     $(document).on ('submit', 'form#custom-search', function(){
       event.preventDefault();
+      // this.toggleLoadWheel();
       $.ajax({
         data: $(event.target).serialize(),
         url: "/songkick/custom_search",
         method: "get",
       }).done(function(response){
         // modal.style.display = "none";
+        debugger
         $('#posts').empty();
         this.addAndBuildEvents(response);
         this.scrollToFirstEvent();
+        // this.toggleLoadWheel();
       }.bind(this));
     }.bind(this));
 
     // artist search
     $(document).on ('submit', 'form#artist-search', function(){
       event.preventDefault();
+      // this.toggleLoadWheel();
       $.ajax({
         data: $(event.target).serialize(),
         url: "/songkick/artist_search",
@@ -109,12 +120,14 @@ ApplicationController.prototype = {
         $('#posts').empty();
         this.addAndBuildEvents(response);
         this.scrollToFirstEvent();
+        // this.toggleLoadWheel();
       }.bind(this));
     }.bind(this));
 
     // returns all shows that have groups already
     $(document).on ('submit', 'form#has-groups', function(){
       event.preventDefault();
+      // this.toggleLoadWheel();
       $.ajax({
         data: $(event.target).serialize(),
         url: "/events/has_groups",
@@ -124,11 +137,12 @@ ApplicationController.prototype = {
         $('#posts').empty();
         this.addAndBuildEvents(response);
         this.scrollToFirstEvent();
+        // this.toggleLoadWheel();
       }.bind(this));
     }.bind(this));
 
     // populate modal with show details
-    $(document).on ('click', '.event a', function(){
+    $('#posts').on ('click', '.event a', function(){
       event.preventDefault();
       $.ajax({
         url: $(this).attr('href'),
@@ -140,25 +154,14 @@ ApplicationController.prototype = {
       });
     });
 
-    // render groups index in modal
-    $(document).on ('click', '.join-squad', function(){
-      event.preventDefault();
-      $.ajax({
-        url: $(this).attr('href'),
-        method: "get"
-      }).done(function(response){
-        $('#inner-content').html(response)
-      });
-    });
-
     // render group new in modal
-    $(document).on ('click', '.start-squad', function(){
+    $('#inner-content').on ('click', 'button', function(){
       event.preventDefault();
       $.ajax({
-        url: $(this).attr('href'),
+        url: $(this).children().attr("href"),
         method: "get"
       }).done(function(response){
-        $('#inner-content').html(response)
+        $('#inner-content').html(response);
       });
     });
 

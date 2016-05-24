@@ -15,8 +15,4 @@ class ArtistsController < ApplicationController
 
   end
 
-  def show
-    # show short bio of artist and all upcoming shows
-    # @artist.events
-  end
 end
