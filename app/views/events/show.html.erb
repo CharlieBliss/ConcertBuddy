@@ -4,10 +4,10 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-centered">
-        <h3> <%= @event.title %> </h3>
-        <h5>Date <%= "#{std_format_date(@event.date)} #{std_format_time(@event.time)}"%></h5>
-        <h5>Location: <span id='event-name'><%= @event.venue.to_s %></span></h5>
-        <h5>More Information: <%=link_to "At Songkick", @event.url, :target => "_blank" %></h5>
+        <h4> <%= @event.title %> </h4>
+        <p>Date: <%= "#{std_format_date(@event.date)} #{std_format_time(@event.time)}"%></p>
+        <p>Location: <span id='event-name'><%= @event.venue.to_s %></span></p>
+        <p>More Information: <%=link_to "At Songkick", @event.url, :target => "_blank" %></p>
 
           <% if @artist %>
             <h5><%= link_to "#{@artist.name} on Spotify", @artist.spotify_url, :target => "_blank" %></h5>
