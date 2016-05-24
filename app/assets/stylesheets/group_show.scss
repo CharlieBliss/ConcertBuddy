@@ -16,3 +16,20 @@
   padding: $padding;
   background-color: $blue2;
 }
+
+#group-members {
+  width: 100%;
+  overflow: auto;
+  text-align: center;
+}
+
+.attendee-show {
+  width: 200px;
+  display: inline;
+  float: left;
+}
+
+.attendee-show img {
+  width: 150px;
+}
+

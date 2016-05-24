@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :require_current_user
 
   def new
     @user = current_user
@@ -7,6 +8,7 @@ class MessagesController < ApplicationController
   end
 
   def create
+
 
     message = Message.new(message_params)
     message.user_id = current_user.id
@@ -20,11 +22,10 @@ class MessagesController < ApplicationController
       end
 
       UserMailer.user_to_group_email(message, owner).deliver_now unless owner.id == message.user_id
-
-      redirect_to root_path
+      redirect_to event_group_path(group.event_id, group)
     else
       flash[:notice] = message.errors.full_messages
-      redirect_to :back
+      redirect_to event_group_path(group.event_id, group)
     end
   end
 

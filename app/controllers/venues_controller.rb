@@ -8,4 +8,5 @@ class VenuesController < ApplicationController
     venue = Venue.build_and_return_unsaved(res)
     render json: venue
   end
+
 end
