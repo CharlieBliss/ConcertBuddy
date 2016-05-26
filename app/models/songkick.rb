@@ -26,6 +26,8 @@ include HTTParty
     def location_return
         res = location_request
 
+        return "No results" if res["resultsPage"]["totalEntries"] == 0
+
         arr_map = res["resultsPage"]["results"]["event"].map do |event|
           if Event.find_by(event_id: event["id"])
             Event.find_by(event_id: event["id"])

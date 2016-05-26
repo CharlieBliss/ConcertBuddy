@@ -23,7 +23,7 @@ class EventsController < ApplicationController
 
   def index
     @songkick = Songkick.new
-    @events = Event.paginate(page: params[:page], per_page: 15).where('start >= ?',Time.now).order('start ASC')
+    @events = Event.all
 
     if request.xhr?
       render @events
@@ -35,9 +35,6 @@ class EventsController < ApplicationController
     events = []
     Group.find_each {|group| events << group.event }
     render json: events
-  end
-
-  def paginate_events
   end
 
   private

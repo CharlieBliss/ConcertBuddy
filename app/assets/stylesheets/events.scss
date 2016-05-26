@@ -45,7 +45,7 @@ body {
 .modal {
     display: none;
     position: fixed; /* Stay in place
-    z-index: 1; /* Sit on top */
+    z-index: 2; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
@@ -98,9 +98,26 @@ textarea {
 }
 
 #new-group-container h3, form{
-  color: black
+  color: black;
+  text-align: center
 }
 
 #new-group-container label {
   color: black
+}
+
+.start-squad {
+  color: white;
+}
+
+.join-squad {
+  color: white;
+}
+
+#load-wheel {
+  margin: auto;
+  position: fixed;
+  z-index: 1;
+  display: none;
+  top: 0; left: 0; bottom: 0; right: 0;
 }
