@@ -1,21 +1,24 @@
+
 <div id="map"></div>
 
-  <% if @artist %>
-    <h5><%= link_to "#{@artist.name} on Spotify", @artist.spotify_url, :target => "_blank" %></h5>
-  <% end %>
+<div id="events-show-container">
+    <% if @artist %>
+      <h5><%= link_to "#{@artist.name} on Spotify", @artist.spotify_url, :target => "_blank" %></h5>
+    <% end %>
 
-  <button class='btn btn-large btn-success'><%= link_to "Start your own group", "/events/#{@event.id}/groups/new", class: 'start-squad'%></button>
+    <button class='btn btn-large btn-success'><%= link_to "Start your own group", "/events/#{@event.id}/groups/new", class: 'start-squad'%></button>
 
-  <% if @event.groups.length > 0 %>
-    <button class='btn btn-large btn-success'><%= link_to "Join a group", "/events/#{@event.id}/groups", class: "join-squad" %></button>
-  <% end %>
+    <% if @event.groups.length > 0 %>
+      <button class='btn btn-large btn-success'><%= link_to "Join a group", "/events/#{@event.id}/groups", class: "join-squad" %></button>
+    <% end %>
 
 
-  <h5> <%= @event.title %> </h5>
-  <h5>Date <%= "#{std_format_date(@event.date)} #{std_format_time(@event.time)}"%></h5>
-  <h5>Location: <span id='event-name'><%= @event.venue.to_s %></span></h5>
-  <h5>More Information: <%=link_to "At Songkick", @event.url, :target => "_blank" %></h5>
+    <h5> <%= @event.title %> </h5>
+    <h5>Date <%= "#{std_format_date(@event.date)} #{std_format_time(@event.time)}"%></h5>
+    <h5>Location: <span id='event-name'><%= @event.venue.to_s %></span></h5>
+    <h5>More Information: <%=link_to "At Songkick", @event.url, :target => "_blank" %></h5>
 
-<div id="coordinates">
-  <%= "#{@event.latitude}|#{@event.longitude}"%>
+  <div id="coordinates">
+    <%= "#{@event.latitude}|#{@event.longitude}"%>
+  </div>
 </div>
