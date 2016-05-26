@@ -4,7 +4,7 @@
 
 #map {
   width: 100%;
-  height: 400px;
+  height: 300px;
 }
 
 #events-show-container h4 {
@@ -12,6 +12,12 @@
 }
 
 #events-show-container h5 {
+  margin-top: $margin;
+  margin-bottom: $margin;
+  color: $off-white;
+}
+
+.modal #events-show-container h5 {
   margin-top: $margin;
   margin-bottom: $margin;
   color: $black;

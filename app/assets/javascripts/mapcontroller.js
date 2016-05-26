@@ -56,8 +56,6 @@ MapController.prototype = {
   fullContentWindow: function(){
     var htmlArray = [];
     htmlArray.push("<p>address: " + this.placeObject.address + "</p>");
-    htmlArray.push("<p>rating:" + this.placeObject.rating + "</p>");
-    htmlArray.push("<p>total ratings:" + this.placeObject.total_ratings + "</p>");
     htmlArray.push("<p>phone: " + this.placeObject.phone + "</p>");
     htmlArray.push("<p><a href=" + this.placeObject.google_url + ">view on google</p>");
     return htmlArray.join("");
