@@ -1,0 +1,31 @@
+#events-show-container {
+  text-align: center;
+}
+
+#map {
+  width: 100%;
+  height: 400px;
+}
+
+#events-show-container h4 {
+  font-size:($medium-header-size * 1.5);
+}
+
+#events-show-container h5 {
+  margin-top: $margin;
+  margin-bottom: $margin;
+  color: $black;
+}
+
+#events-show-container h5 a {
+  color: $blue1;
+}
+
+#events-show-container h5 a:hover {
+  text-decoration: none;
+  color: $aqua1;
+}
+
+#events-show-container .btn {
+  margin-bottom: $margin;
+}

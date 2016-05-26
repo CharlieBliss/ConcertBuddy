@@ -18,10 +18,13 @@
 @import "header";
 @import "footer";
 @import "events";
+@import "events_show";
 @import "group";
 @import "group_show";
 @import "map";
 @import "user";
+
+
 
 .container {
   margin-top: ($margin * 6);
@@ -61,6 +64,12 @@ h4 {
   font-family: $heading-copy;
   color: $off-white;
   font-size: $medium-header-size;
+}
+
+h5 {
+  font-family: $heading-copy;
+  color: $off-white;
+  font-size: $small-header-size;
 }
 
 p {
