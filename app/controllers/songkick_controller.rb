@@ -8,6 +8,7 @@ class SongkickController < ApplicationController
 
   def custom_search
     events = Songkick.new
+    events.add_dates(params[:date][:min_date],params[:date][:max_date])
 
     if params[:location].length > 0
 
@@ -17,16 +18,20 @@ class SongkickController < ApplicationController
       if geocode.valid_response?
         latlng = geocode.get_lat_lon_hash
         events.add_location(latlng["lat"],latlng["lng"])
-        events.add_dates(params[:date][:min_date],params[:date][:max_date])
-        render json: events.location_return
       else
-        render json: "res: no results"
+        render text: "<h2>did not recognize location</h2>"
+        return
       end
-
     else
-        events.add_location(latlng["lat"],latlng["lng"])
-        events.add_dates(params[:date][:min_date],params[:date][:max_date])
-        render json: events.location_return
+      events.add_location
+    end
+
+    location_objects = events.location_return
+
+    if location_objects
+      render json: events.location_return
+    else
+      render text: "<h2 style>Did not return any results, try changing the dates</h2>"
     end
 
   end
@@ -36,8 +41,18 @@ class SongkickController < ApplicationController
     artist_id = artist_search.artist_match(params[:artist])
     if artist_id
       artist_search.remove_query
-      render json: artist_search.search_artist_id(artist_id)
+      response = artist_search.search_artist_id(artist_id)
+
+      if response
+        render json: response
+      else
+        render text: "<h2>No upcoming concerts for #{params[:artist]}</h2>"
+      end
+
+    else
+      render text: "<h2>No artist matched that search</h2>"
     end
+
   end
 
 
