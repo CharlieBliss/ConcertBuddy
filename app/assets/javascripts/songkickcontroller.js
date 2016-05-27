@@ -15,9 +15,8 @@ SongkickController.prototype = {
       method: "GET",
       url: "/songkick/events"
     }).done(function(response){
-      // should probably be an events view
       this.parent.addAndBuildEvents(response);
-    }.bind(this));
+    }.bind(this))
   },
 
   moreInfoButton: function(show){

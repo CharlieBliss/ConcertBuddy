@@ -14,6 +14,7 @@ require "sprockets/railtie"
 # preload tokens in application.yml to local ENV
 # comment out in production
 
+    #uncomment for development to bring in keys
 # config = YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
 # config.merge! config.fetch(Rails.env, {})
 # config.each do |key, value|

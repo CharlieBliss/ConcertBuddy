@@ -44,6 +44,7 @@ ApplicationController.prototype = {
     var name = $('#event-name').text();
     var lat = Number($('#coordinates').html().split("|")[0]);
     var lon = Number($('#coordinates').html().split("|")[1]);
+
     $.ajax({
       data: {name: name, latitude: lat, longitude: lon },
       url: "/venues/search",
@@ -58,6 +59,7 @@ ApplicationController.prototype = {
       this.mapController = new MapController(this, lat, lon);
       this.mapController.initMap();
     });
+
   },
 
   addAndBuildEvents: function(events){
@@ -92,6 +94,7 @@ ApplicationController.prototype = {
     // custom search
     $(document).on ('submit', 'form#custom-search', function(){
       event.preventDefault();
+      this.toggleLoadWheel();
       // this.toggleLoadWheel();
       $.ajax({
         data: $(event.target).serialize(),
@@ -99,10 +102,15 @@ ApplicationController.prototype = {
         method: "get",
       }).done(function(response){
         // modal.style.display = "none";
-        debugger
-        $('#posts').empty();
-        this.addAndBuildEvents(response);
-        this.scrollToFirstEvent();
+        if (Array.isArray(response)){
+          $('#posts').empty();
+          this.addAndBuildEvents(response);
+          this.scrollToFirstEvent();
+        } else {
+          modal.show();
+          $('#inner-content').html(response);
+        }
+        this.toggleLoadWheel();
         // this.toggleLoadWheel();
       }.bind(this));
     }.bind(this));
@@ -110,23 +118,29 @@ ApplicationController.prototype = {
     // artist search
     $(document).on ('submit', 'form#artist-search', function(){
       event.preventDefault();
+      this.toggleLoadWheel();
       // this.toggleLoadWheel();
       $.ajax({
         data: $(event.target).serialize(),
         url: "/songkick/artist_search",
         method: "get",
       }).done(function(response){
-        // modal.style.display = "none";
-        $('#posts').empty();
-        this.addAndBuildEvents(response);
-        this.scrollToFirstEvent();
-        // this.toggleLoadWheel();
+        if (Array.isArray(response)){
+          $('#posts').empty();
+          this.addAndBuildEvents(response);
+          this.scrollToFirstEvent();
+        } else {
+          modal.show();
+          $('#inner-content').html(response);
+        }
+        this.toggleLoadWheel();
       }.bind(this));
     }.bind(this));
 
     // returns all shows that have groups already
     $(document).on ('submit', 'form#has-groups', function(){
       event.preventDefault();
+      this.toggleLoadWheel();
       // this.toggleLoadWheel();
       $.ajax({
         data: $(event.target).serialize(),
@@ -135,6 +149,7 @@ ApplicationController.prototype = {
       }).done(function(response){
         // modal.style.display = "none";
         $('#posts').empty();
+        this.toggleLoadWheel();
         this.addAndBuildEvents(response);
         this.scrollToFirstEvent();
         // this.toggleLoadWheel();

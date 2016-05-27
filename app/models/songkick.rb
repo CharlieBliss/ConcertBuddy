@@ -26,7 +26,7 @@ include HTTParty
     def location_return
         res = location_request
 
-        return "No results" if res["resultsPage"]["totalEntries"] == 0
+        return false if res["resultsPage"]["totalEntries"] == 0 || res["resultsPage"]["status"] == "error"
 
         arr_map = res["resultsPage"]["results"]["event"].map do |event|
           if Event.find_by(event_id: event["id"])
@@ -40,11 +40,8 @@ include HTTParty
 
     def parse_response(res)
       events = res["resultsPage"]["results"]["event"].map do |event|
-        if Event.find_by(event_id: event["id"])
-          Event.find_by(event_id: event["id"])
-        else
-          Event.create_with_songkick(event)
-        end
+        found_event = Event.find_by(event_id: event["id"])
+        found_event ? found_event : Event.create_with_songkick(event)
       end
       events
     end
@@ -89,6 +86,7 @@ include HTTParty
 
     def search_artist_id(artist_id)
       res = self.class.get("/artists/#{artist_id}/calendar.json?", query: query)
+      return false if res["resultsPage"]["status"] != "ok" || res["resultsPage"]["results"].empty?
       parse_response(res)
     end
 

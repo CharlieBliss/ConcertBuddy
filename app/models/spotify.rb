@@ -12,11 +12,16 @@ class Spotify
 
   def self.artist_match(artist)
     response = get_artist(artist)
+    search_artist = artist.downcase
+
     return nil if response["artists"]["items"].empty?
+
     response["artists"]["items"].each do |item|
-      return item if artist.downcase == item["name"].downcase
+      return item if item["name"].downcase.match(search_artist)
     end
+
     nil
+
   end
 
   def self.create_artist_info(artist)
