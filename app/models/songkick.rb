@@ -72,6 +72,7 @@ include HTTParty
     def artist_match(artist)
       add_artist_name(artist)
       res = find_artist_id
+
       if res["resultsPage"]["results"].any?
         res["resultsPage"]["results"]["artist"].each do |curr_artist|
           return curr_artist["id"] if artist.strip.downcase == curr_artist["displayName"].downcase

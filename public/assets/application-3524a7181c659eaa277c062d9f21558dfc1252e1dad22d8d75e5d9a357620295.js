@@ -14039,7 +14039,6 @@ ApplicationController.prototype = {
         method: "get",
       }).done(function(response){
         // modal.style.display = "none";
-        debugger
         $('#posts').empty();
         this.addAndBuildEvents(response);
         this.scrollToFirstEvent();

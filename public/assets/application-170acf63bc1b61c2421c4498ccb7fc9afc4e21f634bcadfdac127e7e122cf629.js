@@ -13984,6 +13984,7 @@ ApplicationController.prototype = {
     var name = $('#event-name').text();
     var lat = Number($('#coordinates').html().split("|")[0]);
     var lon = Number($('#coordinates').html().split("|")[1]);
+
     $.ajax({
       data: {name: name, latitude: lat, longitude: lon },
       url: "/venues/search",
@@ -13998,6 +13999,7 @@ ApplicationController.prototype = {
       this.mapController = new MapController(this, lat, lon);
       this.mapController.initMap();
     });
+
   },
 
   addAndBuildEvents: function(events){
@@ -14011,7 +14013,6 @@ ApplicationController.prototype = {
       };
     };
     this.songkickController.createAllDivs(this.events);
-    // break out into own function
   },
 
   scrollToFirstEvent: function(){
@@ -14033,15 +14034,19 @@ ApplicationController.prototype = {
     $(document).on ('submit', 'form#custom-search', function(){
       event.preventDefault();
       this.toggleLoadWheel();
-
       $.ajax({
         data: $(event.target).serialize(),
         url: "/songkick/custom_search",
         method: "get",
       }).done(function(response){
-        $('#posts').empty();
-        this.addAndBuildEvents(response);
-        this.scrollToFirstEvent();
+        if (Array.isArray(response)){
+          $('#posts').empty();
+          this.addAndBuildEvents(response);
+          this.scrollToFirstEvent();
+        } else {
+          modal.show();
+          $('#inner-content').html(response);
+        }
         this.toggleLoadWheel();
       }.bind(this));
     }.bind(this));
@@ -14055,10 +14060,14 @@ ApplicationController.prototype = {
         url: "/songkick/artist_search",
         method: "get",
       }).done(function(response){
-
-        $('#posts').empty();
-        this.addAndBuildEvents(response);
-        this.scrollToFirstEvent();
+        if (Array.isArray(response)){
+          $('#posts').empty();
+          this.addAndBuildEvents(response);
+          this.scrollToFirstEvent();
+        } else {
+          modal.show();
+          $('#inner-content').html(response);
+        }
         this.toggleLoadWheel();
       }.bind(this));
     }.bind(this));
@@ -14066,17 +14075,16 @@ ApplicationController.prototype = {
     // returns all shows that have groups already
     $(document).on ('submit', 'form#has-groups', function(){
       event.preventDefault();
-      // this.toggleLoadWheel();
+      this.toggleLoadWheel();
       $.ajax({
         data: $(event.target).serialize(),
         url: "/events/has_groups",
         method: "get",
       }).done(function(response){
-        // modal.style.display = "none";
         $('#posts').empty();
+        this.toggleLoadWheel();
         this.addAndBuildEvents(response);
         this.scrollToFirstEvent();
-        // this.toggleLoadWheel();
       }.bind(this));
     }.bind(this));
 
@@ -14289,8 +14297,6 @@ MapController.prototype = {
   fullContentWindow: function(){
     var htmlArray = [];
     htmlArray.push("<p>address: " + this.placeObject.address + "</p>");
-    htmlArray.push("<p>rating:" + this.placeObject.rating + "</p>");
-    htmlArray.push("<p>total ratings:" + this.placeObject.total_ratings + "</p>");
     htmlArray.push("<p>phone: " + this.placeObject.phone + "</p>");
     htmlArray.push("<p><a href=" + this.placeObject.google_url + ">view on google</p>");
     return htmlArray.join("");
@@ -14313,9 +14319,8 @@ SongkickController.prototype = {
       method: "GET",
       url: "/songkick/events"
     }).done(function(response){
-      // should probably be an events view
       this.parent.addAndBuildEvents(response);
-    }.bind(this));
+    }.bind(this))
   },
 
   moreInfoButton: function(show){

@@ -73,7 +73,6 @@ ApplicationController.prototype = {
       };
     };
     this.songkickController.createAllDivs(this.events);
-    // break out into own function
   },
 
   scrollToFirstEvent: function(){
@@ -95,13 +94,11 @@ ApplicationController.prototype = {
     $(document).on ('submit', 'form#custom-search', function(){
       event.preventDefault();
       this.toggleLoadWheel();
-      // this.toggleLoadWheel();
       $.ajax({
         data: $(event.target).serialize(),
         url: "/songkick/custom_search",
         method: "get",
       }).done(function(response){
-        // modal.style.display = "none";
         if (Array.isArray(response)){
           $('#posts').empty();
           this.addAndBuildEvents(response);
@@ -111,7 +108,6 @@ ApplicationController.prototype = {
           $('#inner-content').html(response);
         }
         this.toggleLoadWheel();
-        // this.toggleLoadWheel();
       }.bind(this));
     }.bind(this));
 
@@ -119,7 +115,6 @@ ApplicationController.prototype = {
     $(document).on ('submit', 'form#artist-search', function(){
       event.preventDefault();
       this.toggleLoadWheel();
-      // this.toggleLoadWheel();
       $.ajax({
         data: $(event.target).serialize(),
         url: "/songkick/artist_search",
@@ -141,18 +136,15 @@ ApplicationController.prototype = {
     $(document).on ('submit', 'form#has-groups', function(){
       event.preventDefault();
       this.toggleLoadWheel();
-      // this.toggleLoadWheel();
       $.ajax({
         data: $(event.target).serialize(),
         url: "/events/has_groups",
         method: "get",
       }).done(function(response){
-        // modal.style.display = "none";
         $('#posts').empty();
         this.toggleLoadWheel();
         this.addAndBuildEvents(response);
         this.scrollToFirstEvent();
-        // this.toggleLoadWheel();
       }.bind(this));
     }.bind(this));
 
