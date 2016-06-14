@@ -1,4 +1,4 @@
-class Place
+ class Place
 
 include HTTParty
 

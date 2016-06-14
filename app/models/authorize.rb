@@ -1,6 +1,8 @@
 class Authorize
   include HTTParty
 
+
+
   def self.spotify_token_response(code)
     base_url = "https://accounts.spotify.com/api/token"
 
@@ -27,3 +29,7 @@ class Authorize
   end
 
 end
+
+https://auth.teamsnap.com/oauth/authorize?client_id=2c741dcf1a63858f6f8581548d9da0145103e7f1ad5ae34738c33ac4a0df9dd8&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauthorizations%2Fcallback&response_type=code
+
+https://auth.teamsnap.com/oauth/authorize?client_id=2c741dcf1a63858f6f8581548d9da0145103e7f1ad5ae34738c33ac4a0df9dd8&redirect_url=localhost%3A3000%2Fauthorizations%2Fcallback&response_type=code&scope=read+write

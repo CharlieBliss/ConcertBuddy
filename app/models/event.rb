@@ -21,6 +21,7 @@ class Event < ActiveRecord::Base
         time: event["start"]["time"],
         date: event["start"]["date"],
         )
+
         headliner = Songkick.headliner(event)
         if headliner
           new_event.songkick_artist_id = headliner["id"]
