@@ -15,9 +15,6 @@ class SongkickController < ApplicationController
 
       geocode = Geocode.new(address: params[:location])
       geocode.location_get
-      #logging for heroku
-      puts "HERE"
-      puts geocode.current_response
 
       if geocode.valid_response?
         latlng = geocode.get_lat_lon_hash
