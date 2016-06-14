@@ -47,6 +47,8 @@ include HTTParty
     end
 
     def self.headliner(event)
+
+
       event["performance"].each {|perf| return perf["artist"] if perf["billingIndex"] == 1}
       nil
     end

@@ -1,6 +1,8 @@
 class Authorize
   include HTTParty
 
+
+
   def self.spotify_token_response(code)
     base_url = "https://accounts.spotify.com/api/token"
 
@@ -27,3 +29,4 @@ class Authorize
   end
 
 end
+
